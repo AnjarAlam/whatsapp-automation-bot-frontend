@@ -39,9 +39,10 @@ export function Header() {
 
   useEffect(() => {
     fetchStatus();
-    const interval = setInterval(() => fetchStatus(), 15000);
+    const pollInterval = status === 'CONNECTING' ? 2000 : 15000;
+    const interval = setInterval(() => fetchStatus(), pollInterval);
     return () => clearInterval(interval);
-  }, [fetchStatus]);
+  }, [fetchStatus, status]);
 
   const closeAllMenus = () => {
     setShowNotificationMenu(false);

@@ -52,7 +52,7 @@ export function SettingsTab() {
     try {
       await disconnect();
       // Introduce a delay to allow wwebjs cache files to be deleted by the OS filesystem
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 500));
       await connect();
     } catch (err) {
       console.error('Failed to reset session:', err);
