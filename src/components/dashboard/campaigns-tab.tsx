@@ -745,8 +745,8 @@ export function CampaignsTab() {
         </div>
       ) : (
         /* Campaigns Data Grid table */
-        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl shadow-md overflow-hidden transition-colors">
-          <div className="overflow-x-auto">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl shadow-md overflow-hidden transition-colors flex-1 flex flex-col">
+          <div className="overflow-x-auto overflow-y-auto flex-1">
             <table className="w-full text-left text-xs text-slate-600 dark:text-slate-350">
               <thead className="bg-slate-50 dark:bg-slate-50/60 uppercase text-[9px] tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-200">
                 <tr>
