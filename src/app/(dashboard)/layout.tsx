@@ -46,7 +46,7 @@ export default function DashboardLayout({
 
   if (!isInitialized) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 space-y-3">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-50 flex flex-col items-center justify-center text-slate-400 dark:text-slate-400 space-y-3">
         <Loader2 className="w-8 h-8 text-primary animate-spin" />
         <p className="text-xs font-medium">Initializing WhatsApp Platform Hub...</p>
       </div>
@@ -55,11 +55,11 @@ export default function DashboardLayout({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 selection:bg-primary/30 selection:text-primary transition-colors duration-300">
+      <div className="flex min-h-screen bg-slate-50 dark:bg-slate-50 text-slate-800 dark:text-slate-100 selection:bg-primary/30 selection:text-primary transition-colors duration-300">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
           <Header />
-          <main className="flex-1 p-4 md:p-5 overflow-y-auto bg-slate-100/30 dark:bg-slate-950/40">{children}</main>
+          <main className="flex-1 p-4 md:p-5 overflow-y-auto bg-slate-100/30 dark:bg-slate-50/40">{children}</main>
         </div>
       </div>
     </QueryClientProvider>

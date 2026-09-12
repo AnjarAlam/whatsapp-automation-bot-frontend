@@ -120,7 +120,7 @@ export function TemplatesTab() {
       {/* Title */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
             <FileText className="w-5 h-5 text-primary" />
             <span>Templates Repository</span>
           </h1>
@@ -130,7 +130,7 @@ export function TemplatesTab() {
         {!isEditing && (
           <button
             onClick={handleCreateNew}
-            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-white text-xs rounded-lg flex items-center gap-1.5 transition-all shadow"
+            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-slate-900 text-xs rounded-lg flex items-center gap-1.5 transition-all shadow"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Template</span>
@@ -140,8 +140,8 @@ export function TemplatesTab() {
 
       {isEditing ? (
         /* Form view editor */
-        <div className="bg-white dark:bg-slate-900 border border-slate-205 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-4 max-w-2xl transition-colors">
-          <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200 uppercase tracking-wider">
+        <div className="bg-white dark:bg-white border border-slate-205 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-4 max-w-2xl transition-colors">
+          <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800 uppercase tracking-wider">
             {activeTemplate ? 'Edit Template Draft' : 'Create Custom Template'}
           </h3>
 
@@ -153,7 +153,7 @@ export function TemplatesTab() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="E.g. VIP Festive Greeting"
-                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-250 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-250 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 placeholder-slate-500 focus:outline-none"
               />
             </div>
             <div className="space-y-1">
@@ -161,7 +161,7 @@ export function TemplatesTab() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-250 dark:border-slate-800 rounded-lg text-xs text-slate-700 dark:text-slate-300 focus:outline-none"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-250 dark:border-slate-200 rounded-lg text-xs text-slate-700 dark:text-slate-700 focus:outline-none"
               >
                 <option value="Promotion">Promotion</option>
                 <option value="Reminder">Reminder</option>
@@ -178,14 +178,14 @@ export function TemplatesTab() {
                 <button
                   type="button"
                   onClick={() => setContent((c) => c + ' {{customer_name}}')}
-                  className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                  className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                 >
                   + Name
                 </button>
                 <button
                   type="button"
                   onClick={() => setContent((c) => c + ' {{business_name}}')}
-                  className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                  className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                 >
                   + Business
                 </button>
@@ -196,20 +196,20 @@ export function TemplatesTab() {
               onChange={(e) => setContent(e.target.value)}
               rows={5}
               placeholder="Type template message here..."
-              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-250 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none font-mono"
+              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-250 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 placeholder-slate-500 focus:outline-none font-mono"
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+          <div className="flex justify-end gap-2 pt-2 border-t border-slate-200 dark:border-slate-200">
             <button
               onClick={() => setIsEditing(false)}
-              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-950 border border-slate-250 dark:border-slate-800 text-slate-650 dark:text-slate-400 text-xs rounded-lg hover:bg-slate-200"
+              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-50 border border-slate-250 dark:border-slate-200 text-slate-650 dark:text-slate-400 text-xs rounded-lg hover:bg-slate-200"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-4 py-1.5 bg-primary text-white font-bold text-xs rounded-lg hover:bg-primary-hover transition-colors flex items-center gap-1"
+              className="px-4 py-1.5 bg-primary text-slate-900 font-bold text-xs rounded-lg hover:bg-primary-hover transition-colors flex items-center gap-1"
             >
               <Save className="w-3.5 h-3.5" />
               <span>Save Template</span>
@@ -220,33 +220,33 @@ export function TemplatesTab() {
         /* Grid list templates */
         <div className="space-y-3">
           {/* search templates */}
-          <div className="flex items-center gap-2.5 bg-white dark:bg-slate-900 border border-slate-205 dark:border-slate-800 rounded-xl px-3 py-1.5 w-full sm:max-w-xs shadow-sm transition-colors">
-            <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+          <div className="flex items-center gap-2.5 bg-white dark:bg-white border border-slate-205 dark:border-slate-200 rounded-xl px-3 py-1.5 w-full sm:max-w-xs shadow-sm transition-colors">
+            <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search templates..."
-              className="w-full bg-transparent text-xs text-slate-900 dark:text-white focus:outline-none placeholder-slate-400 dark:placeholder-slate-500"
+              className="w-full bg-transparent text-xs text-slate-900 dark:text-slate-900 focus:outline-none placeholder-slate-400 dark:placeholder-slate-500"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {filteredTemplates.length > 0 ? (
               filteredTemplates.map((t) => (
-                <div key={t.id} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-slate-700/80 rounded-xl p-4 shadow-md flex flex-col justify-between space-y-3 relative group transition-all duration-200">
+                <div key={t.id} className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 hover:border-primary/50 dark:hover:border-slate-700/80 rounded-xl p-4 shadow-md flex flex-col justify-between space-y-3 relative group transition-all duration-200">
                   <div className="space-y-1">
                     <div className="flex justify-between items-start">
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">{t.title}</h4>
-                      <span className="px-2 py-0.5 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-[9px] font-bold text-slate-500 dark:text-slate-450">{t.category}</span>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-900 leading-tight">{t.title}</h4>
+                      <span className="px-2 py-0.5 rounded bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 text-[9px] font-bold text-slate-400 dark:text-slate-450">{t.category}</span>
                     </div>
-                    <p className="text-[11px] text-slate-650 dark:text-slate-400 font-mono break-words line-clamp-3 bg-slate-50 dark:bg-slate-950/60 p-2 rounded border border-slate-200 dark:border-slate-850">{t.content}</p>
+                    <p className="text-[11px] text-slate-650 dark:text-slate-400 font-mono break-words line-clamp-3 bg-slate-50 dark:bg-slate-50/60 p-2 rounded border border-slate-200 dark:border-slate-850">{t.content}</p>
                   </div>
 
                   <div className="flex justify-between items-center border-t border-slate-200 dark:border-slate-850 pt-2 text-[10px]">
                     <div className="flex flex-wrap gap-1">
                       {t.variables.map((v) => (
-                        <span key={v} className="bg-slate-100 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded text-[8px] border border-slate-200 dark:border-slate-850">
+                        <span key={v} className="bg-slate-100 dark:bg-slate-50 text-slate-400 dark:text-slate-400 font-bold px-1.5 py-0.5 rounded text-[8px] border border-slate-200 dark:border-slate-850">
                           {v}
                         </span>
                       ))}
@@ -256,14 +256,14 @@ export function TemplatesTab() {
                       <button
                         onClick={() => handleCopyContent(t.content)}
                         title="Copy text content"
-                        className="p-1 rounded text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        className="p-1 rounded text-slate-400 hover:text-slate-800 dark:hover:text-slate-800 hover:bg-slate-100 dark:hover:bg-slate-100"
                       >
                         <Copy className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => handleEdit(t)}
                         title="Edit template details"
-                        className="p-1 rounded text-slate-455 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800"
+                        className="p-1 rounded text-slate-455 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-100"
                       >
                         <Edit className="w-3.5 h-3.5" />
                       </button>
@@ -271,7 +271,7 @@ export function TemplatesTab() {
                       <button
                         onClick={() => handleDelete(t.id)}
                         title="Delete template"
-                        className="p-1 rounded text-slate-500 hover:text-rose-400 hover:bg-slate-800"
+                        className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-slate-100"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
@@ -280,7 +280,7 @@ export function TemplatesTab() {
                 </div>
               ))
             ) : (
-              <div className="col-span-full py-12 text-center text-slate-500 text-[10px]">
+              <div className="col-span-full py-12 text-center text-slate-400 text-[10px]">
                 No templates match search criteria.
               </div>
             )}

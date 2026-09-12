@@ -117,65 +117,65 @@ export function OverviewTab() {
       {/* Title */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">System Overview</h1>
-          <p className="text-[11px] text-slate-500 dark:text-slate-450 mt-0.5">Real-time status updates and bulk broadcast dispatch tracking</p>
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900">System Overview</h1>
+          <p className="text-[11px] text-slate-400 dark:text-slate-450 mt-0.5">Real-time status updates and bulk broadcast dispatch tracking</p>
         </div>
       </div>
 
       {/* Row 1 KPI Grid */}
       <div className="grid grid-cols-2 md:grid-cols-6 gap-3.5">
         {/* KPI 1: Customers */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Customers</span>
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Customers</span>
             <Users className="w-3.5 h-3.5 text-blue-500" />
           </div>
           <div>
-            <span className="text-lg font-black text-slate-900 dark:text-white">{isLoading ? '...' : stats.totalCustomers}</span>
+            <span className="text-lg font-black text-slate-900 dark:text-slate-900">{isLoading ? '...' : stats.totalCustomers}</span>
             <span className="text-[9px] text-primary font-semibold block mt-0.5">+12% month-over-month</span>
           </div>
         </div>
 
         {/* KPI 2: Active Broadcasts */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Jobs</span>
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Active Jobs</span>
             <Megaphone className="w-3.5 h-3.5 text-purple-500" />
           </div>
           <div>
-            <span className="text-lg font-black text-slate-900 dark:text-white">{isLoading ? '...' : stats.activeCampaigns}</span>
-            <span className="text-[9px] text-slate-500 dark:text-slate-450 block mt-0.5">In queue processor</span>
+            <span className="text-lg font-black text-slate-900 dark:text-slate-900">{isLoading ? '...' : stats.activeCampaigns}</span>
+            <span className="text-[9px] text-slate-400 dark:text-slate-450 block mt-0.5">In queue processor</span>
           </div>
         </div>
 
         {/* KPI 3: Sent Messages */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Sent Today</span>
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Sent Today</span>
             <MessageSquare className="w-3.5 h-3.5 text-primary" />
           </div>
           <div>
-            <span className="text-lg font-black text-slate-900 dark:text-white">{isLoading ? '...' : stats.sentToday}</span>
+            <span className="text-lg font-black text-slate-900 dark:text-slate-900">{isLoading ? '...' : stats.sentToday}</span>
             <span className="text-[9px] text-slate-550 dark:text-slate-450 block mt-0.5">Dispatched logs</span>
           </div>
         </div>
 
         {/* KPI 4: Delivery Rate */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Delivery Rate</span>
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Delivery Rate</span>
             <TrendingUp className="w-3.5 h-3.5 text-teal-500" />
           </div>
           <div>
             <span className="text-lg font-black text-teal-600 dark:text-teal-400">{isLoading ? '...' : `${stats.deliveryRate}%`}</span>
-            <span className="text-[9px] text-slate-500 dark:text-slate-450 block mt-0.5">Target reached</span>
+            <span className="text-[9px] text-slate-400 dark:text-slate-450 block mt-0.5">Target reached</span>
           </div>
         </div>
 
         {/* KPI 5: Failed Messages */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Failed</span>
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Failed</span>
             <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
           </div>
           <div>
@@ -185,7 +185,7 @@ export function OverviewTab() {
         </div>
 
         {/* KPI 6: WhatsApp Connection */}
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors cursor-pointer shadow-sm" onClick={() => router.push('/whatsapp')}>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl relative overflow-hidden flex flex-col justify-between h-[85px] hover:border-primary/50 dark:hover:border-slate-700 transition-colors cursor-pointer shadow-sm" onClick={() => router.push('/whatsapp')}>
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-bold text-slate-550 dark:text-slate-400 uppercase tracking-wider">WhatsApp Status</span>
             <Activity className="w-3.5 h-3.5 text-primary" />
@@ -204,7 +204,7 @@ export function OverviewTab() {
                 Disconnected
               </span>
             )}
-            <span className="text-[9px] text-slate-500 block truncate mt-1">
+            <span className="text-[9px] text-slate-400 block truncate mt-1">
               {connectedNumber ? `+${connectedNumber}` : 'Configure device'}
             </span>
           </div>
@@ -214,10 +214,10 @@ export function OverviewTab() {
       {/* Row 2: Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Left: Message Volume Chart */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div>
-            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Message Volume Trend</h3>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">Total sent vs failed messages across active processes</p>
+            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Message Volume Trend</h3>
+            <p className="text-[10px] text-slate-400 dark:text-slate-400">Total sent vs failed messages across active processes</p>
           </div>
           <div className="h-60 w-full text-xs">
             <ResponsiveContainer width="100%" height="100%">
@@ -239,10 +239,10 @@ export function OverviewTab() {
         </div>
 
         {/* Right: Campaign Performance Chart */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div>
-            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Campaign Performance</h3>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">Comparing sent vs failed statistics per campaign</p>
+            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Campaign Performance</h3>
+            <p className="text-[10px] text-slate-400 dark:text-slate-400">Comparing sent vs failed statistics per campaign</p>
           </div>
           <div className="h-60 w-full text-xs">
             {campaignPerformanceData.length > 0 ? (
@@ -269,11 +269,11 @@ export function OverviewTab() {
       {/* Row 3: Tables */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Left: Recent Campaigns */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="lg:col-span-2 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div className="flex justify-between items-center">
             <div>
-              <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Recent Campaigns</h3>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400">Launch states and BullMQ progress trackers</p>
+              <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Recent Campaigns</h3>
+              <p className="text-[10px] text-slate-400 dark:text-slate-400">Launch states and BullMQ progress trackers</p>
             </div>
             <button onClick={() => router.push('/campaigns')} className="text-[10px] text-primary font-semibold hover:underline flex items-center gap-0.5">
               Manage Campaigns <ArrowUpRight className="w-3 h-3" />
@@ -281,8 +281,8 @@ export function OverviewTab() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
-              <thead className="bg-slate-50 dark:bg-slate-950/60 uppercase text-[9px] tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-800">
+            <table className="w-full text-left text-xs text-slate-600 dark:text-slate-700">
+              <thead className="bg-slate-50 dark:bg-slate-50/60 uppercase text-[9px] tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-200">
                 <tr>
                   <th className="py-2.5 px-3">Name</th>
                   <th className="py-2.5 px-3">Type</th>
@@ -294,14 +294,14 @@ export function OverviewTab() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {isLoading ? (
                   <tr>
-                    <td colSpan={5} className="py-8 text-center text-slate-500 text-[10px]">Loading campaigns...</td>
+                    <td colSpan={5} className="py-8 text-center text-slate-400 text-[10px]">Loading campaigns...</td>
                   </tr>
                 ) : campaigns.length > 0 ? (
                   campaigns.slice(0, 5).map((camp) => (
-                    <tr key={camp._id} className="hover:bg-slate-50 dark:hover:bg-slate-950/20 transition-colors">
+                    <tr key={camp._id} className="hover:bg-slate-50 dark:hover:bg-slate-50/20 transition-colors">
                       <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-slate-100 max-w-[120px] truncate">{camp.name}</td>
                       <td className="py-2.5 px-3 text-[10px]">
-                        <span className="px-2 py-0.5 rounded bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-650 dark:text-slate-400 font-medium">
+                        <span className="px-2 py-0.5 rounded bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 text-slate-650 dark:text-slate-400 font-medium">
                           {camp.type}
                         </span>
                       </td>
@@ -315,7 +315,7 @@ export function OverviewTab() {
                             <Clock className="w-3 h-3 animate-spin" /> {camp.status}
                           </span>
                         ) : (
-                          <span className="text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-800">
+                          <span className="text-slate-400 dark:text-slate-400 bg-slate-100 dark:bg-slate-50/80 px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-200">
                             {camp.status}
                           </span>
                         )}
@@ -334,10 +334,10 @@ export function OverviewTab() {
                                 }}
                             ></div>
                           </div>
-                          <span className="text-[9px] text-slate-500">{camp.stats?.sent || 0}/{camp.stats?.total || 0}</span>
+                          <span className="text-[9px] text-slate-400">{camp.stats?.sent || 0}/{camp.stats?.total || 0}</span>
                         </div>
                       </td>
-                      <td className="py-2.5 px-3 text-right text-slate-500 text-[10px]">{formatDate(camp.createdAt)}</td>
+                      <td className="py-2.5 px-3 text-right text-slate-400 text-[10px]">{formatDate(camp.createdAt)}</td>
                     </tr>
                   ))
                 ) : (
@@ -351,11 +351,11 @@ export function OverviewTab() {
         </div>
 
         {/* Right: Recent Customer Activity Feed */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div className="flex justify-between items-center">
             <div>
-              <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Inbound Activity</h3>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400">Latest message responses</p>
+              <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Inbound Activity</h3>
+              <p className="text-[10px] text-slate-400 dark:text-slate-400">Latest message responses</p>
             </div>
             <button onClick={() => router.push('/conversations')} className="text-[10px] text-primary font-semibold hover:underline">
               Open Chat
@@ -365,14 +365,14 @@ export function OverviewTab() {
           <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
             {recentConversations.length > 0 ? (
               recentConversations.map((conv) => (
-                <div key={conv._id} className="flex gap-2.5 items-start p-2 rounded bg-slate-50 dark:bg-slate-950/20 border border-slate-200 dark:border-slate-850">
+                <div key={conv._id} className="flex gap-2.5 items-start p-2 rounded bg-slate-50 dark:bg-slate-50/20 border border-slate-200 dark:border-slate-850">
                   <div className="w-6 h-6 rounded-full bg-primary-light text-primary flex items-center justify-center font-black text-[9px] border border-primary/20 shrink-0">
                     {conv.customerId?.name ? conv.customerId.name[0].toUpperCase() : 'C'}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-baseline">
-                      <span className="text-[10px] font-bold text-slate-800 dark:text-white truncate max-w-[100px]">{conv.customerId?.name || 'WhatsApp Contact'}</span>
-                      <span className="text-[8px] text-slate-500">{formatDate(conv.lastMessageAt || conv.updatedAt)}</span>
+                      <span className="text-[10px] font-bold text-slate-800 dark:text-slate-900 truncate max-w-[100px]">{conv.customerId?.name || 'WhatsApp Contact'}</span>
+                      <span className="text-[8px] text-slate-400">{formatDate(conv.lastMessageAt || conv.updatedAt)}</span>
                     </div>
                     <p className="text-[9px] text-slate-550 dark:text-slate-400 truncate mt-0.5">{conv.lastMessage || 'No message history'}</p>
                   </div>

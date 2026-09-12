@@ -89,7 +89,7 @@ export function FlowsTab() {
 
   const renderFlowHierarchy = (flow: any) => {
     return (
-      <div className="p-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 rounded-xl space-y-4 overflow-x-auto text-[10px] animate-in slide-in-from-top-2 duration-200 mt-3">
+      <div className="p-3 bg-slate-50 dark:bg-slate-50/60 border border-slate-200 dark:border-slate-850 rounded-xl space-y-4 overflow-x-auto text-[10px] animate-in slide-in-from-top-2 duration-200 mt-3">
         <div className="flex flex-col items-center">
           {/* Node 1: Trigger */}
           <div className="px-2.5 py-1 bg-primary/10 border border-primary/30 rounded text-primary font-bold font-mono">
@@ -100,7 +100,7 @@ export function FlowsTab() {
           <div className="w-0.5 h-4 bg-slate-200 dark:bg-slate-805" />
           
           {/* Node 2: Welcome message */}
-          <div className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg max-w-sm text-center shadow-sm">
+          <div className="px-3 py-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg max-w-sm text-center shadow-sm">
             <span className="font-bold text-[8px] text-slate-400 block uppercase tracking-wider mb-0.5">Welcome Message</span>
             <p className="line-clamp-2 text-slate-700 dark:text-slate-350">{flow.welcomeMessage}</p>
           </div>
@@ -108,17 +108,17 @@ export function FlowsTab() {
           {flow.options && flow.options.length > 0 ? (
             <>
               {/* Connector */}
-              <div className="w-0.5 h-4 bg-slate-200 dark:bg-slate-800" />
+              <div className="w-0.5 h-4 bg-slate-200 dark:bg-slate-100" />
               
               {/* Node 3: Options splitting */}
               <div className="relative w-full flex justify-around gap-2">
                 {/* Horizontal line */}
-                <div className="absolute top-0 left-[16.5%] right-[16.5%] h-0.5 bg-slate-200 dark:bg-slate-800" />
+                <div className="absolute top-0 left-[16.5%] right-[16.5%] h-0.5 bg-slate-200 dark:bg-slate-100" />
 
                 {flow.options.map((opt: any, idx: number) => (
                   <div key={idx} className="flex flex-col items-center w-[30%] relative pt-2 min-w-[100px]">
                     {/* Vertical line to each option */}
-                    <div className="absolute top-0 left-1/2 w-0.5 h-2 bg-slate-200 dark:bg-slate-800 -translate-x-1/2" />
+                    <div className="absolute top-0 left-1/2 w-0.5 h-2 bg-slate-200 dark:bg-slate-100 -translate-x-1/2" />
                     
                     {/* Option Box */}
                     <div className="px-2 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 rounded font-bold text-[9px] w-full text-center truncate">
@@ -126,10 +126,10 @@ export function FlowsTab() {
                     </div>
 
                     {/* Connector to Response */}
-                    <div className="w-0.5 h-3 bg-slate-200 dark:bg-slate-800" />
+                    <div className="w-0.5 h-3 bg-slate-200 dark:bg-slate-100" />
 
                     {/* Response Message Box */}
-                    <div className="px-2 py-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-slate-600 dark:text-slate-350 w-full text-center truncate shadow-sm" title={opt.responseMessage}>
+                    <div className="px-2 py-1 bg-slate-100 dark:bg-white border border-slate-200 dark:border-slate-200 rounded text-slate-600 dark:text-slate-350 w-full text-center truncate shadow-sm" title={opt.responseMessage}>
                       {opt.responseMessage}
                     </div>
                   </div>
@@ -334,11 +334,11 @@ export function FlowsTab() {
       {/* Top Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
             <Bot className="w-5 h-5 text-primary" />
             <span>WhatsApp Auto-Reply & IVR Bot Builder</span>
           </h1>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">
             Configure automated menu responses, trigger rules (e.g. Press 1 for Menu, 2 for Order) and keyword handlers
           </p>
         </div>
@@ -346,9 +346,9 @@ export function FlowsTab() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleOpenCreateModal}
-            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-white text-xs rounded-lg transition-all flex items-center gap-1.5 shadow"
+            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-slate-900 text-xs rounded-lg transition-all flex items-center gap-1.5 shadow"
           >
-            <Plus className="w-3.5 h-3.5 text-white" />
+            <Plus className="w-3.5 h-3.5 text-slate-900" />
             <span>Create New Bot Menu</span>
           </button>
         </div>
@@ -357,9 +357,9 @@ export function FlowsTab() {
       {/* Info Banner */}
       <div className="p-3.5 bg-primary-light/40 border border-primary/20 rounded-xl flex items-start gap-3">
         <Sparkles className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-        <div className="text-xs text-slate-700 dark:text-slate-300">
+        <div className="text-xs text-slate-700 dark:text-slate-700">
           <span className="font-bold text-primary block mb-0.5">How WhatsApp Bot Flows Work</span>
-          When a customer sends a message matching your trigger keywords (e.g. <code className="bg-white dark:bg-slate-900 px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">hi, menu, start</code>), the bot instantly sends your welcome menu. When the customer replies with an option number (e.g. <code className="bg-white dark:bg-slate-900 px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">1</code> or <code className="bg-white dark:bg-slate-900 px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">2</code>), the bot automatically replies with the specified option message!
+          When a customer sends a message matching your trigger keywords (e.g. <code className="bg-white dark:bg-white px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">hi, menu, start</code>), the bot instantly sends your welcome menu. When the customer replies with an option number (e.g. <code className="bg-white dark:bg-white px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">1</code> or <code className="bg-white dark:bg-white px-1 py-0.5 rounded text-primary border border-primary/20 font-mono text-[10px]">2</code>), the bot automatically replies with the specified option message!
         </div>
       </div>
 
@@ -374,13 +374,13 @@ export function FlowsTab() {
           flows.map((flow) => (
             <div
               key={flow._id}
-              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors flex flex-col justify-between"
+              className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors flex flex-col justify-between"
             >
               <div className="space-y-3">
                 {/* Title & Status */}
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-slate-900 flex items-center gap-1.5">
                       <span>{flow.title}</span>
                     </h3>
                     <div className="flex items-center gap-1 mt-1">
@@ -400,7 +400,7 @@ export function FlowsTab() {
                     className={`px-2 py-0.5 rounded-full text-[9px] font-extrabold border transition-all flex items-center gap-1 ${
                       flow.isActive
                         ? 'bg-primary-light text-primary border-primary/30'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-300 dark:border-slate-700'
+                        : 'bg-slate-100 dark:bg-slate-100 text-slate-400 border-slate-300 dark:border-slate-700'
                     }`}
                   >
                     {flow.isActive ? <Play className="w-2.5 h-2.5 fill-current" /> : <Pause className="w-2.5 h-2.5 fill-current" />}
@@ -409,9 +409,9 @@ export function FlowsTab() {
                 </div>
 
                 {/* Welcome Message Preview */}
-                <div className="p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-300 space-y-1">
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-700 space-y-1">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Greeting Welcome Menu:</span>
-                  <p className="whitespace-pre-wrap font-sans text-[11px] line-clamp-3 text-slate-800 dark:text-slate-200">{flow.welcomeMessage}</p>
+                  <p className="whitespace-pre-wrap font-sans text-[11px] line-clamp-3 text-slate-800 dark:text-slate-800">{flow.welcomeMessage}</p>
                 </div>
 
                 {/* Option Branches Preview */}
@@ -419,12 +419,12 @@ export function FlowsTab() {
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Menu Response Branches ({flow.options?.length || 0}):</span>
                   <div className="space-y-1">
                     {(flow.options || []).map((opt: any, idx: number) => (
-                      <div key={idx} className="flex items-center justify-between p-1.5 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 text-[10px]">
+                      <div key={idx} className="flex items-center justify-between p-1.5 rounded bg-slate-50 dark:bg-slate-50/60 border border-slate-200 dark:border-slate-850 text-[10px]">
                         <div className="flex items-center gap-1.5">
                           <span className="px-1.5 py-0.5 rounded bg-primary-light text-primary font-bold font-mono text-[9px] border border-primary/20">
                             Key {opt.key}
                           </span>
-                          <span className="font-semibold text-slate-800 dark:text-slate-200">{opt.label}</span>
+                          <span className="font-semibold text-slate-800 dark:text-slate-800">{opt.label}</span>
                         </div>
                         <span className="text-[9px] text-slate-400 truncate max-w-[150px]">{opt.responseMessage}</span>
                       </div>
@@ -437,11 +437,11 @@ export function FlowsTab() {
               </div>
 
               {/* Actions Footer */}
-              <div className="flex justify-between items-center border-t border-slate-100 dark:border-slate-800 pt-3 mt-3">
+              <div className="flex justify-between items-center border-t border-slate-100 dark:border-slate-200 pt-3 mt-3">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleOpenSimulator(flow)}
-                    className="px-2.5 py-1 bg-slate-105 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-750 dark:text-slate-200 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1 shadow-sm border border-slate-200 dark:border-slate-800"
+                    className="px-2.5 py-1 bg-slate-105 dark:bg-slate-100 hover:bg-slate-250 dark:hover:bg-slate-200 text-slate-750 dark:text-slate-800 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1 shadow-sm border border-slate-200 dark:border-slate-200"
                   >
                     <Smartphone className="w-3.5 h-3.5 text-primary" />
                     <span>Test Simulator</span>
@@ -449,7 +449,7 @@ export function FlowsTab() {
 
                   <button
                     onClick={() => toggleHierarchy(flow._id)}
-                    className="px-2.5 py-1 bg-slate-105 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-750 dark:text-slate-205 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1 border border-slate-200 dark:border-slate-800 shadow-sm"
+                    className="px-2.5 py-1 bg-slate-105 dark:bg-slate-100 hover:bg-slate-250 dark:hover:bg-slate-200 text-slate-750 dark:text-slate-205 text-[10px] font-bold rounded-lg transition-colors flex items-center gap-1 border border-slate-200 dark:border-slate-200 shadow-sm"
                   >
                     <Layers className="w-3.5 h-3.5 text-primary" />
                     <span>{expandedHierarchy[flow._id] ? 'Hide Tree' : 'View Tree Hierarchy'}</span>
@@ -476,17 +476,17 @@ export function FlowsTab() {
             </div>
           ))
         ) : (
-          <div className="col-span-2 py-16 text-center text-slate-400 space-y-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-8">
+          <div className="col-span-2 py-16 text-center text-slate-400 space-y-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-8">
             <Bot className="w-10 h-10 text-primary mx-auto opacity-70" />
             <div>
-              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">No Auto-Reply Bot Rules Configured</h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Create your first automated WhatsApp menu (e.g. Press 1 for Menu, 2 for Order) to handle customer inquiries automatically.</p>
+              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-800">No Auto-Reply Bot Rules Configured</h3>
+              <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">Create your first automated WhatsApp menu (e.g. Press 1 for Menu, 2 for Order) to handle customer inquiries automatically.</p>
             </div>
             <button
               onClick={handleOpenCreateModal}
-              className="px-4 py-2 bg-primary text-white font-bold text-xs rounded-lg hover:bg-primary-hover shadow inline-flex items-center gap-1.5"
+              className="px-4 py-2 bg-primary text-slate-900 font-bold text-xs rounded-lg hover:bg-primary-hover shadow inline-flex items-center gap-1.5"
             >
-              <Plus className="w-4 h-4 text-white" />
+              <Plus className="w-4 h-4 text-slate-900" />
               <span>Create Store IVR Menu</span>
             </button>
           </div>
@@ -495,14 +495,14 @@ export function FlowsTab() {
 
       {/* Editor Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-5 shadow-2xl space-y-4 my-8 animate-in zoom-in-95 duration-200">
-            <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <div className="fixed inset-0 z-50 bg-slate-50/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl max-w-2xl w-full p-5 shadow-2xl space-y-4 my-8 animate-in zoom-in-95 duration-200">
+            <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-200 pb-3">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2">
                 <Bot className="w-4 h-4 text-primary" />
                 <span>{editingFlowId ? 'Edit Bot Flow Menu' : 'Configure New WhatsApp IVR Menu'}</span>
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-white">
+              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-slate-900">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -510,44 +510,44 @@ export function FlowsTab() {
             <form onSubmit={handleSaveFlow} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Flow Menu Name</label>
+                  <label className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase">Flow Menu Name</label>
                   <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="E.g. Main Customer Store Menu"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-primary/50"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Trigger Keywords (Comma Separated)</label>
+                  <label className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase">Trigger Keywords (Comma Separated)</label>
                   <input
                     type="text"
                     value={triggerKeyword}
                     onChange={(e) => setTriggerKeyword(e.target.value)}
                     placeholder="E.g. hi, hello, menu, start, 1"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-primary/50"
                   />
                 </div>
               </div>
 
               {/* Welcome Message */}
               <div className="space-y-1">
-                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Greeting Welcome Menu Text</label>
+                <label className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase">Greeting Welcome Menu Text</label>
                 <textarea
                   value={welcomeMessage}
                   onChange={(e) => setWelcomeMessage(e.target.value)}
                   rows={4}
                   placeholder="Type the message sent when triggered..."
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-primary/50"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-primary/50"
                 />
               </div>
 
               {/* Dynamic Option Branch Builder */}
-              <div className="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3">
+              <div className="space-y-2 border-t border-slate-200 dark:border-slate-200 pt-3">
                 <div className="flex justify-between items-center">
-                  <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Response Option Branches ({options.length})</label>
+                  <label className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase">Response Option Branches ({options.length})</label>
                   <button
                     type="button"
                     onClick={handleAddOption}
@@ -559,7 +559,7 @@ export function FlowsTab() {
 
                 <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                   {options.map((opt, idx) => (
-                    <div key={idx} className="p-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl space-y-2 relative">
+                    <div key={idx} className="p-2.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-xl space-y-2 relative">
                       <div className="flex items-center gap-2">
                         <div className="w-20 space-y-0.5">
                           <span className="text-[8px] font-bold text-slate-400 uppercase">Reply Key</span>
@@ -568,7 +568,7 @@ export function FlowsTab() {
                             value={opt.key}
                             onChange={(e) => handleOptionChange(idx, 'key', e.target.value)}
                             placeholder="1"
-                            className="w-full px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs font-mono font-bold text-primary focus:outline-none"
+                            className="w-full px-2 py-1 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded text-xs font-mono font-bold text-primary focus:outline-none"
                           />
                         </div>
 
@@ -579,7 +579,7 @@ export function FlowsTab() {
                             value={opt.label}
                             onChange={(e) => handleOptionChange(idx, 'label', e.target.value)}
                             placeholder="Main Menu"
-                            className="w-full px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs text-slate-900 dark:text-white focus:outline-none"
+                            className="w-full px-2 py-1 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded text-xs text-slate-900 dark:text-slate-900 focus:outline-none"
                           />
                         </div>
 
@@ -599,7 +599,7 @@ export function FlowsTab() {
                           onChange={(e) => handleOptionChange(idx, 'responseMessage', e.target.value)}
                           rows={2}
                           placeholder="Type automated response for this option..."
-                          className="w-full px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs text-slate-900 dark:text-white focus:outline-none"
+                          className="w-full px-2 py-1 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded text-xs text-slate-900 dark:text-slate-900 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -608,7 +608,7 @@ export function FlowsTab() {
               </div>
 
               {/* Modal Footer */}
-              <div className="flex justify-between items-center border-t border-slate-200 dark:border-slate-800 pt-3">
+              <div className="flex justify-between items-center border-t border-slate-200 dark:border-slate-200 pt-3">
                 <div className="flex items-center gap-2">
                   <input
                     type="checkbox"
@@ -617,7 +617,7 @@ export function FlowsTab() {
                     onChange={(e) => setIsActive(e.target.checked)}
                     className="rounded border-slate-300 text-primary focus:ring-primary"
                   />
-                  <label htmlFor="flowActiveCheck" className="text-xs text-slate-700 dark:text-slate-300 font-semibold cursor-pointer">
+                  <label htmlFor="flowActiveCheck" className="text-xs text-slate-700 dark:text-slate-700 font-semibold cursor-pointer">
                     Enable & Activate Bot Rule
                   </label>
                 </div>
@@ -626,14 +626,14 @@ export function FlowsTab() {
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-lg text-xs hover:bg-slate-200"
+                    className="px-3 py-1.5 bg-slate-100 dark:bg-slate-100 text-slate-600 dark:text-slate-700 font-bold rounded-lg text-xs hover:bg-slate-200"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-4 py-1.5 bg-primary text-white font-bold text-xs rounded-lg hover:bg-primary-hover shadow flex items-center gap-1"
+                    className="px-4 py-1.5 bg-primary text-slate-900 font-bold text-xs rounded-lg hover:bg-primary-hover shadow flex items-center gap-1"
                   >
                     {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Save & Deploy Bot'}
                   </button>
@@ -646,20 +646,20 @@ export function FlowsTab() {
 
       {/* Simulator Modal */}
       {isTestingModalOpen && simulatedFlow && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-sm w-full p-4 shadow-2xl space-y-3 animate-in zoom-in-95 duration-200">
-            <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-2">
+        <div className="fixed inset-0 z-50 bg-slate-50/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl max-w-sm w-full p-4 shadow-2xl space-y-3 animate-in zoom-in-95 duration-200">
+            <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-200 pb-2">
               <div className="flex items-center gap-2">
                 <Smartphone className="w-4 h-4 text-primary" />
-                <span className="text-xs font-bold text-slate-900 dark:text-white">WhatsApp Live Simulator</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-900">WhatsApp Live Simulator</span>
               </div>
-              <button onClick={() => setIsTestingModalOpen(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-white">
+              <button onClick={() => setIsTestingModalOpen(false)} className="text-slate-400 hover:text-slate-900 dark:hover:text-slate-900">
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Smartphone Timeline screen */}
-            <div className="h-80 bg-[#efeae2] dark:bg-[#0b141a] rounded-xl p-3 overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-800">
+            <div className="h-80 bg-[#efeae2] dark:bg-[#0b141a] rounded-xl p-3 overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-200">
               {simulatedChat.map((m, idx) => (
                 <div key={idx} className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
@@ -683,9 +683,9 @@ export function FlowsTab() {
                 value={simulatedInput}
                 onChange={(e) => setSimulatedInput(e.target.value)}
                 placeholder="Type 'hi' or '1' or '2'..."
-                className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none"
+                className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none"
               />
-              <button type="submit" className="p-2 bg-primary text-white rounded-lg hover:bg-primary-hover shadow">
+              <button type="submit" className="p-2 bg-primary text-slate-900 rounded-lg hover:bg-primary-hover shadow">
                 <Send className="w-3.5 h-3.5" />
               </button>
             </form>
@@ -695,21 +695,21 @@ export function FlowsTab() {
 
       {/* Custom Dialog Box Modal overlay */}
       {dialog.isOpen && (
-        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-[100] bg-slate-50/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in zoom-in-95 duration-150">
             <div className="space-y-1 text-xs">
-              <h3 className="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <h3 className="text-sm font-extrabold text-slate-900 dark:text-slate-900 flex items-center gap-1.5">
                 <Info className="w-4 h-4 text-primary shrink-0" />
                 <span>{dialog.title}</span>
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">{dialog.description}</p>
+              <p className="text-slate-400 dark:text-slate-400 text-[11px] leading-relaxed">{dialog.description}</p>
             </div>
 
-            <div className="flex justify-end gap-2 border-t border-slate-100 dark:border-slate-800 pt-3 mt-1">
+            <div className="flex justify-end gap-2 border-t border-slate-100 dark:border-slate-200 pt-3 mt-1">
               <button
                 type="button"
                 onClick={closeDialog}
-                className="px-3.5 py-1.5 bg-slate-105 dark:bg-slate-850 text-slate-600 dark:text-slate-300 font-bold rounded-lg text-xs hover:bg-slate-200 transition-colors"
+                className="px-3.5 py-1.5 bg-slate-105 dark:bg-slate-850 text-slate-600 dark:text-slate-700 font-bold rounded-lg text-xs hover:bg-slate-200 transition-colors"
               >
                 {dialog.type === 'alert' ? 'Close' : 'Cancel'}
               </button>
@@ -717,7 +717,7 @@ export function FlowsTab() {
                 <button
                   type="button"
                   onClick={dialog.onConfirm}
-                  className="px-4 py-1.5 bg-primary text-white font-bold rounded-lg text-xs hover:bg-primary-hover shadow transition-colors"
+                  className="px-4 py-1.5 bg-primary text-slate-900 font-bold rounded-lg text-xs hover:bg-primary-hover shadow transition-colors"
                 >
                   Confirm
                 </button>

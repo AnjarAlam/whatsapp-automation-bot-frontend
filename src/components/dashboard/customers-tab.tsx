@@ -242,7 +242,7 @@ export function CustomersTab() {
       {/* Top action header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-850">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
             <Users className="w-5 h-5 text-primary" />
             <span>Customers & CRM Portal</span>
           </h1>
@@ -254,13 +254,13 @@ export function CustomersTab() {
         {/* View Switcher Toggle & CSV Actions */}
         <div className="flex items-center gap-2">
           {/* Main Toggle Switch */}
-          <div className="bg-slate-100 dark:bg-slate-950 p-0.5 rounded-lg border border-slate-250 dark:border-slate-850 flex shrink-0 transition-colors">
+          <div className="bg-slate-100 dark:bg-slate-50 p-0.5 rounded-lg border border-slate-250 dark:border-slate-850 flex shrink-0 transition-colors">
             <button
               onClick={() => setCrmView('directory')}
               className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all ${
                 crmView === 'directory'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-500 dark:text-slate-450 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-white dark:bg-white text-slate-900 dark:text-slate-900 shadow-sm'
+                  : 'text-slate-400 dark:text-slate-450 hover:text-slate-900 dark:hover:text-slate-800'
               }`}
             >
               Directory Grid
@@ -269,8 +269,8 @@ export function CustomersTab() {
               onClick={() => setCrmView('segments')}
               className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all ${
                 crmView === 'segments'
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-500 dark:text-slate-450 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-white dark:bg-white text-slate-900 dark:text-slate-900 shadow-sm'
+                  : 'text-slate-400 dark:text-slate-450 hover:text-slate-900 dark:hover:text-slate-800'
               }`}
             >
               Tag Segments
@@ -279,15 +279,15 @@ export function CustomersTab() {
 
           <button
             onClick={openAddDrawer}
-            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-white text-xs rounded-lg flex items-center gap-1 shadow transition-all"
+            className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-slate-900 text-xs rounded-lg flex items-center gap-1 shadow transition-all"
           >
-            <UserPlus className="w-3.5 h-3.5 text-white" />
+            <UserPlus className="w-3.5 h-3.5 text-slate-900" />
             <span className="hidden sm:inline">Add Customer</span>
           </button>
           
           <button
             onClick={() => setIsImportModalOpen(true)}
-            className="px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-800 text-slate-700 dark:text-slate-250 text-xs font-bold rounded-lg flex items-center gap-1 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="px-3 py-1.5 bg-slate-50 dark:bg-white border border-slate-250 dark:border-slate-200 text-slate-700 dark:text-slate-250 text-xs font-bold rounded-lg flex items-center gap-1 hover:bg-slate-100 dark:hover:bg-slate-100 transition-colors"
           >
             <Upload className="w-3.5 h-3.5 text-primary" />
             <span className="hidden sm:inline">Import</span>
@@ -295,7 +295,7 @@ export function CustomersTab() {
 
           <button
             onClick={handleExport}
-            className="px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-800 text-slate-700 dark:text-slate-250 text-xs font-bold rounded-lg flex items-center gap-1 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="px-3 py-1.5 bg-slate-50 dark:bg-white border border-slate-250 dark:border-slate-200 text-slate-700 dark:text-slate-250 text-xs font-bold rounded-lg flex items-center gap-1 hover:bg-slate-100 dark:hover:bg-slate-100 transition-colors"
           >
             <Download className="w-3.5 h-3.5 text-primary" />
             <span className="hidden sm:inline">Export</span>
@@ -306,22 +306,22 @@ export function CustomersTab() {
       {crmView === 'directory' ? (
         /* DIRECTORY VIEW WORKSPACE */
         <>
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-3 shadow flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-colors">
+          <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-3 shadow flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-colors">
             {/* Search */}
             <div className="flex items-center gap-2.5 bg-slate-55 dark:bg-slate-955 border border-slate-200 dark:border-slate-850 rounded-lg px-3 py-1.5 w-full sm:max-w-xs">
-              <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+              <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => triggerSearch(e.target.value)}
                 placeholder="Search name or mobile number..."
-                className="w-full bg-transparent text-xs text-slate-900 dark:text-white focus:outline-none placeholder-slate-400 dark:placeholder-slate-500"
+                className="w-full bg-transparent text-xs text-slate-900 dark:text-slate-900 focus:outline-none placeholder-slate-400 dark:placeholder-slate-500"
               />
             </div>
 
             {/* Dropdowns filters */}
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-450">
+              <div className="flex items-center gap-1 text-[11px] text-slate-400 dark:text-slate-450">
                 <Filter className="w-3 h-3" />
                 <span>Filters:</span>
               </div>
@@ -329,7 +329,7 @@ export function CustomersTab() {
               <select
                 value={selectedTag}
                 onChange={(e) => { setSelectedTag(e.target.value); setPage(1); }}
-                className="px-2.5 py-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-300 focus:outline-none transition-colors"
+                className="px-2.5 py-1.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-700 focus:outline-none transition-colors"
               >
                 <option value="">All Tags</option>
                 {Object.keys(tagsGroup).filter(t => t !== 'All Contacts').map(t => (
@@ -340,7 +340,7 @@ export function CustomersTab() {
               <select
                 value={selectedStatus}
                 onChange={(e) => { setSelectedStatus(e.target.value); setPage(1); }}
-                className="px-2.5 py-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-300 focus:outline-none transition-colors"
+                className="px-2.5 py-1.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-700 dark:text-slate-700 focus:outline-none transition-colors"
               >
                 <option value="">All States</option>
                 <option value="active">Active Chats</option>
@@ -350,21 +350,21 @@ export function CustomersTab() {
           </div>
 
           {/* CRM table grid */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow overflow-hidden transition-colors">
+          <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl shadow overflow-hidden transition-colors">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-slate-650 dark:text-slate-350">
-                <thead className="bg-slate-50 dark:bg-slate-955/60 uppercase text-[9px] tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-800">
+                <thead className="bg-slate-50 dark:bg-slate-955/60 uppercase text-[9px] tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-200">
                   <tr>
                     <th className="py-2.5 px-4 w-10">
                       <div
                         onClick={handleToggleSelectAllRows}
                         className={`w-3.5 h-3.5 rounded border flex items-center justify-center cursor-pointer transition-colors ${
                           selectedIds.length === customers.length && customers.length > 0
-                            ? 'bg-primary border-primary text-white'
-                            : 'border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900'
+                            ? 'bg-primary border-primary text-slate-900'
+                            : 'border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-white'
                         }`}
                       >
-                        {selectedIds.length === customers.length && customers.length > 0 && <Check className="w-3 h-3 text-white stroke-[3.5]" />}
+                        {selectedIds.length === customers.length && customers.length > 0 && <Check className="w-3 h-3 text-slate-900 stroke-[3.5]" />}
                       </div>
                     </th>
                     <th className="py-2.5 px-4">Name</th>
@@ -378,7 +378,7 @@ export function CustomersTab() {
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                   {isLoading ? (
                     <tr>
-                      <td colSpan={7} className="py-12 text-center text-slate-500">
+                      <td colSpan={7} className="py-12 text-center text-slate-400">
                         <Loader2 className="w-6 h-6 animate-spin mx-auto text-primary mb-1" />
                         Loading CRM database records...
                       </td>
@@ -395,21 +395,21 @@ export function CustomersTab() {
                             <div
                               onClick={() => handleToggleSelectRow(cust._id)}
                               className={`w-3.5 h-3.5 rounded border flex items-center justify-center cursor-pointer transition-colors ${
-                                isChecked ? 'bg-primary border-primary text-white' : 'border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900'
+                                isChecked ? 'bg-primary border-primary text-slate-900' : 'border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-white'
                               }`}
                             >
-                              {isChecked && <Check className="w-3 h-3 text-white stroke-[3.5]" />}
+                              {isChecked && <Check className="w-3 h-3 text-slate-900 stroke-[3.5]" />}
                             </div>
                           </td>
-                          <td className="py-2.5 px-4 font-semibold text-slate-900 dark:text-slate-200">
+                          <td className="py-2.5 px-4 font-semibold text-slate-900 dark:text-slate-800">
                             <div className="flex items-center gap-2">
-                              <div className="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-[10px] text-primary shrink-0">
+                              <div className="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-100 border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-[10px] text-primary shrink-0">
                                 {cust.name[0]?.toUpperCase()}
                               </div>
                               <span>{cust.name}</span>
                             </div>
                           </td>
-                          <td className="py-2.5 px-4 font-mono text-[11px] text-slate-700 dark:text-slate-300">{cust.mobile}</td>
+                          <td className="py-2.5 px-4 font-mono text-[11px] text-slate-700 dark:text-slate-700">{cust.mobile}</td>
                           <td className="py-2.5 px-4">
                             <div className="flex flex-wrap gap-1">
                               {cust.tags && cust.tags.length > 0 ? (
@@ -426,10 +426,10 @@ export function CustomersTab() {
                               )}
                             </div>
                           </td>
-                          <td className="py-2.5 px-4 text-slate-500 dark:text-slate-400 text-[11px] truncate max-w-[150px]">
+                          <td className="py-2.5 px-4 text-slate-400 dark:text-slate-400 text-[11px] truncate max-w-[150px]">
                             {cust.lastCampaign || 'No campaigns sent'}
                           </td>
-                          <td className="py-2.5 px-4 text-center font-bold text-slate-700 dark:text-slate-300">
+                          <td className="py-2.5 px-4 text-center font-bold text-slate-700 dark:text-slate-700">
                             {cust.totalMessages || 0}
                           </td>
                           <td className="py-2.5 px-4 text-right space-x-1.5">
@@ -453,7 +453,7 @@ export function CustomersTab() {
                     })
                   ) : (
                     <tr>
-                      <td colSpan={7} className="py-12 text-center text-slate-500">
+                      <td colSpan={7} className="py-12 text-center text-slate-400">
                         No contacts found matching search filters.
                       </td>
                     </tr>
@@ -463,14 +463,14 @@ export function CustomersTab() {
             </div>
 
             {/* Pagination Footer */}
-            <div className="p-3 bg-slate-55 dark:bg-slate-955/60 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 transition-colors">
+            <div className="p-3 bg-slate-55 dark:bg-slate-955/60 border-t border-slate-200 dark:border-slate-200 flex items-center justify-between text-xs text-slate-400 dark:text-slate-400 transition-colors">
               <span>Total Customers: <strong>{total}</strong></span>
               
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrevPage}
                   disabled={page === 1}
-                  className="p-1 rounded border border-slate-250 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 disabled:opacity-40 transition-colors"
+                  className="p-1 rounded border border-slate-250 dark:border-slate-200 hover:bg-slate-100 dark:hover:bg-white disabled:opacity-40 transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -478,7 +478,7 @@ export function CustomersTab() {
                 <button
                   onClick={handleNextPage}
                   disabled={!nextCursor}
-                  className="p-1 rounded border border-slate-250 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 disabled:opacity-40 transition-colors"
+                  className="p-1 rounded border border-slate-250 dark:border-slate-200 hover:bg-slate-100 dark:hover:bg-white disabled:opacity-40 transition-colors"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -488,11 +488,11 @@ export function CustomersTab() {
         </>
       ) : (
         /* SEGMENTS VIEW WORKSPACE */
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl h-[450px] flex overflow-hidden shadow transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl h-[450px] flex overflow-hidden shadow transition-colors">
           {/* Left panel: tag category scroll list */}
-          <div className="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
-            <div className="p-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-955/20 transition-colors">
-              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Audience Tag Groupings</span>
+          <div className="w-64 border-r border-slate-200 dark:border-slate-200 flex flex-col shrink-0">
+            <div className="p-3 border-b border-slate-200 dark:border-slate-200 bg-slate-50 dark:bg-slate-955/20 transition-colors">
+              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Audience Tag Groupings</span>
             </div>
 
             <div className="flex-1 overflow-y-auto p-2 space-y-1.5">
@@ -506,14 +506,14 @@ export function CustomersTab() {
                     className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       isActive
                         ? 'bg-primary-light text-primary border border-primary/25 shadow-sm'
-                        : 'text-slate-655 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-850/50'
+                        : 'text-slate-655 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-800 hover:bg-slate-100 dark:hover:bg-slate-850/50'
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <Tag className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                      <Tag className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400 shrink-0" />
                       <span className="truncate max-w-[120px]">{tagKey}</span>
                     </div>
-                    <span className="text-[9px] bg-slate-200 dark:bg-slate-950 px-1.5 py-0.5 rounded text-slate-500 dark:text-slate-400 border border-slate-300 dark:border-slate-850 font-bold font-mono">
+                    <span className="text-[9px] bg-slate-200 dark:bg-slate-50 px-1.5 py-0.5 rounded text-slate-400 dark:text-slate-400 border border-slate-300 dark:border-slate-850 font-bold font-mono">
                       {count}
                     </span>
                   </button>
@@ -523,25 +523,25 @@ export function CustomersTab() {
           </div>
 
           {/* Right panel: Segment Contact list */}
-          <div className="flex-1 flex flex-col justify-between bg-slate-50/20 dark:bg-slate-950/30 transition-colors">
+          <div className="flex-1 flex flex-col justify-between bg-slate-50/20 dark:bg-slate-50/30 transition-colors">
             {/* Header info */}
-            <div className="p-3 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0 transition-colors">
+            <div className="p-3 bg-slate-50 dark:bg-white border-b border-slate-200 dark:border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0 transition-colors">
               <div>
-                <h3 className="text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                <h3 className="text-xs font-bold text-slate-700 dark:text-slate-800 flex items-center gap-1">
                   <span>Selected Category Tag:</span>
                   <span className="text-primary font-extrabold">{activeSegmentTag}</span>
                 </h3>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg px-2.5 py-1 w-44">
+                <div className="flex items-center gap-2 bg-white dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-lg px-2.5 py-1 w-44">
                   <Search className="w-3 h-3 text-slate-400 dark:text-slate-550" />
                   <input
                     type="text"
                     value={segmentSearch}
                     onChange={(e) => setSegmentSearch(e.target.value)}
                     placeholder="Search in tag group..."
-                    className="bg-transparent text-[11px] text-slate-900 dark:text-white focus:outline-none w-full"
+                    className="bg-transparent text-[11px] text-slate-900 dark:text-slate-900 focus:outline-none w-full"
                   />
                 </div>
               </div>
@@ -551,7 +551,7 @@ export function CustomersTab() {
             <div className="flex-1 overflow-y-auto">
               {displayedSegmentContacts.length > 0 ? (
                 <table className="w-full text-left text-xs text-slate-650 dark:text-slate-350">
-                  <thead className="bg-slate-50 dark:bg-slate-950/60 uppercase text-[9px] tracking-wider text-slate-500 sticky top-0 border-b border-slate-200 dark:border-slate-800 z-10">
+                  <thead className="bg-slate-50 dark:bg-slate-50/60 uppercase text-[9px] tracking-wider text-slate-400 sticky top-0 border-b border-slate-200 dark:border-slate-200 z-10">
                     <tr>
                       <th className="py-2.5 px-3">Name</th>
                       <th className="py-2.5 px-3">Phone</th>
@@ -562,16 +562,16 @@ export function CustomersTab() {
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                     {displayedSegmentContacts.map((c) => (
                       <tr key={c._id} className="hover:bg-slate-100 dark:hover:bg-slate-955/20 transition-colors text-[11px]">
-                        <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-slate-200">
+                        <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-slate-800">
                           <div className="flex items-center gap-2">
-                            <div className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-[9px] text-primary shrink-0">
+                            <div className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-100 flex items-center justify-center font-bold text-[9px] text-primary shrink-0">
                               {c.name[0]?.toUpperCase()}
                             </div>
                             <span>{c.name}</span>
                           </div>
                         </td>
-                        <td className="py-2.5 px-3 font-mono text-slate-700 dark:text-slate-300">{c.mobile}</td>
-                        <td className="py-2.5 px-3 text-slate-500 dark:text-slate-450">{c.email || 'N/A'}</td>
+                        <td className="py-2.5 px-3 font-mono text-slate-700 dark:text-slate-700">{c.mobile}</td>
+                        <td className="py-2.5 px-3 text-slate-400 dark:text-slate-450">{c.email || 'N/A'}</td>
                         <td className="py-2.5 px-3 text-right font-bold text-slate-400 px-4">{c.totalMessages || 0}</td>
                       </tr>
                     ))}
@@ -589,12 +589,12 @@ export function CustomersTab() {
 
       {/* Floating BULK ACTIONS overlay */}
       {selectedIds.length > 0 && crmView === 'directory' && (
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-slate-900 border border-slate-250 dark:border-primary/30 rounded-xl px-4 py-3 shadow-2xl flex items-center gap-4 animate-in slide-in-from-bottom-5 duration-200">
-          <div className="text-xs text-slate-850 dark:text-slate-200">
+        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-white border border-slate-250 dark:border-primary/30 rounded-xl px-4 py-3 shadow-2xl flex items-center gap-4 animate-in slide-in-from-bottom-5 duration-200">
+          <div className="text-xs text-slate-850 dark:text-slate-800">
             Selected Contacts: <strong className="text-primary">{selectedIds.length}</strong>
           </div>
           
-          <div className="h-5 w-px bg-slate-200 dark:bg-slate-800" />
+          <div className="h-5 w-px bg-slate-200 dark:bg-slate-100" />
 
           {/* Bulk Assign Tag Input */}
           <div className="flex items-center gap-1.5">
@@ -603,18 +603,18 @@ export function CustomersTab() {
               value={bulkTagInput}
               onChange={(e) => setBulkTagInput(e.target.value)}
               placeholder="Tag list (e.g. VIP, Lead)"
-              className="px-2 py-1 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded text-[11px] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none w-36"
+              className="px-2 py-1 bg-slate-50 dark:bg-slate-50 border border-slate-300 dark:border-slate-200 rounded text-[11px] text-slate-900 dark:text-slate-900 placeholder-slate-400 focus:outline-none w-36"
             />
             <button
               onClick={handleBulkAssignTags}
               disabled={isExecutingBulk}
-              className="px-2.5 py-1 bg-primary text-white font-bold rounded text-[10px] hover:bg-primary-hover disabled:opacity-50"
+              className="px-2.5 py-1 bg-primary text-slate-900 font-bold rounded text-[10px] hover:bg-primary-hover disabled:opacity-50"
             >
               Apply Tags
             </button>
           </div>
 
-          <div className="h-5 w-px bg-slate-200 dark:bg-slate-800" />
+          <div className="h-5 w-px bg-slate-200 dark:bg-slate-100" />
 
           <button
             onClick={handleBulkDelete}

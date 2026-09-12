@@ -90,18 +90,18 @@ export function OrdersTab() {
       {/* Header section */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
             <ShoppingCart className="w-5 h-5 text-primary" />
             <span>Orders & POS Tracker</span>
           </h1>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">
             Monitor restaurant orders received through the automated WhatsApp Ordering Bot
           </p>
         </div>
         <button
           onClick={fetchOrders}
           disabled={isLoading}
-          className="self-start sm:self-center p-2 rounded-lg bg-slate-105 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 flex items-center gap-1.5 text-xs font-semibold shadow-sm transition-all"
+          className="self-start sm:self-center p-2 rounded-lg bg-slate-105 dark:bg-white hover:bg-slate-200 dark:hover:bg-slate-100 text-slate-700 dark:text-slate-800 border border-slate-200 dark:border-slate-200 flex items-center gap-1.5 text-xs font-semibold shadow-sm transition-all"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
           <span>Refresh Tickets</span>
@@ -116,10 +116,10 @@ export function OrdersTab() {
           { label: 'Completed Today', value: orders.filter((o) => o.status === 'Completed').length, color: 'text-emerald-500 bg-emerald-500/10' },
           { label: 'Total Placed', value: orders.length, color: 'text-primary bg-primary-light' }
         ].map((stat, i) => (
-          <div key={i} className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-between shadow-sm">
+          <div key={i} className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl flex items-center justify-between shadow-sm">
             <div>
               <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{stat.label}</span>
-              <span className="text-base font-black text-slate-900 dark:text-white mt-0.5 block">{stat.value}</span>
+              <span className="text-base font-black text-slate-900 dark:text-slate-900 mt-0.5 block">{stat.value}</span>
             </div>
             <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${stat.color}`}>
               {stat.value}
@@ -130,15 +130,15 @@ export function OrdersTab() {
 
       {/* Filter and search bar */}
       <div className="flex flex-col sm:flex-row items-center gap-3">
-        <div className="flex bg-slate-100 dark:bg-slate-950 p-0.5 rounded-lg border border-slate-200 dark:border-slate-850 w-full sm:w-auto">
+        <div className="flex bg-slate-100 dark:bg-slate-50 p-0.5 rounded-lg border border-slate-200 dark:border-slate-850 w-full sm:w-auto">
           {(['All', 'Pending', 'Preparing', 'Completed'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
               className={`flex-1 sm:flex-none px-4 py-1 rounded-md text-xs font-semibold transition-all ${
                 filter === tab
-                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm border border-slate-200/50 dark:border-slate-800/30'
-                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-white dark:bg-white text-slate-900 dark:text-slate-900 shadow-sm border border-slate-200/50 dark:border-slate-200/30'
+                  : 'text-slate-400 hover:text-slate-900 dark:hover:text-slate-800'
               }`}
             >
               {tab}
@@ -153,14 +153,14 @@ export function OrdersTab() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by customer, phone, or pizza type..."
-            className="w-full pl-9 pr-4 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary/50 transition-colors shadow-sm"
+            className="w-full pl-9 pr-4 py-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary/50 transition-colors shadow-sm"
           />
         </div>
       </div>
 
       {/* Orders grid */}
       {isLoading ? (
-        <div className="min-h-[250px] flex flex-col items-center justify-center text-slate-500 space-y-2.5">
+        <div className="min-h-[250px] flex flex-col items-center justify-center text-slate-400 space-y-2.5">
           <RefreshCw className="w-7 h-7 text-primary animate-spin" />
           <p className="text-xs font-medium">Loading ticket queue...</p>
         </div>
@@ -173,7 +173,7 @@ export function OrdersTab() {
             return (
               <div
                 key={order._id}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between space-y-4 shadow hover:shadow-md transition-all relative overflow-hidden"
+                className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 flex flex-col justify-between space-y-4 shadow hover:shadow-md transition-all relative overflow-hidden"
               >
                 {/* Accent Top Border Indicator */}
                 <div
@@ -191,7 +191,7 @@ export function OrdersTab() {
                 {/* Card Header */}
                 <div className="flex justify-between items-start pt-1">
                   <div>
-                    <h3 className="text-xs font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <h3 className="text-xs font-black text-slate-900 dark:text-slate-900 flex items-center gap-1.5">
                       {order.customer?.name || 'WhatsApp Customer'}
                     </h3>
                     <span className="text-[10px] text-slate-450 block font-mono mt-0.5">
@@ -207,7 +207,7 @@ export function OrdersTab() {
                         ? 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/20'
                         : order.status === 'Completed'
                         ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'
-                        : 'bg-slate-100 dark:bg-slate-950 text-slate-500 border border-slate-250 dark:border-slate-850'
+                        : 'bg-slate-100 dark:bg-slate-50 text-slate-400 border border-slate-250 dark:border-slate-850'
                     }`}
                   >
                     {order.status}
@@ -221,7 +221,7 @@ export function OrdersTab() {
                     {order.items.map((item, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-0.5 bg-slate-50 dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-[10px] font-semibold text-slate-800 dark:text-slate-300"
+                        className="px-2 py-0.5 bg-slate-50 dark:bg-slate-50 rounded border border-slate-200 dark:border-slate-200 text-[10px] font-semibold text-slate-800 dark:text-slate-700"
                       >
                         🍕 {item}
                       </span>
@@ -236,14 +236,14 @@ export function OrdersTab() {
                       <>
                         <Utensils className="w-3.5 h-3.5 text-slate-400" />
                         <span>
-                          Dine-in: <span className="font-bold text-slate-900 dark:text-white">Table {order.tableNumber || 'N/A'}</span>
+                          Dine-in: <span className="font-bold text-slate-900 dark:text-slate-900">Table {order.tableNumber || 'N/A'}</span>
                         </span>
                       </>
                     ) : (
                       <>
                         <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                         <span className="truncate" title={order.deliveryAddress}>
-                          Delivery Address: <span className="font-bold text-slate-900 dark:text-white">{order.deliveryAddress || 'N/A'}</span>
+                          Delivery Address: <span className="font-bold text-slate-900 dark:text-slate-900">{order.deliveryAddress || 'N/A'}</span>
                         </span>
                       </>
                     )}
@@ -261,9 +261,9 @@ export function OrdersTab() {
                     <>
                       <button
                         onClick={() => updateStatus(order._id, 'Preparing')}
-                        className="flex-1 py-1.5 bg-indigo-650 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white font-bold text-[10px] rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm"
+                        className="flex-1 py-1.5 bg-indigo-650 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-slate-900 font-bold text-[10px] rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm"
                       >
-                        <Play className="w-3 h-3 text-white fill-white" />
+                        <Play className="w-3 h-3 text-slate-900 fill-white" />
                         <span>Start Preparing</span>
                       </button>
                       <button
@@ -280,9 +280,9 @@ export function OrdersTab() {
                     <>
                       <button
                         onClick={() => updateStatus(order._id, 'Completed')}
-                        className="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[10px] rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm"
+                        className="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-slate-900 font-bold text-[10px] rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm"
                       >
-                        <CheckCircle className="w-3 h-3 text-white" />
+                        <CheckCircle className="w-3 h-3 text-slate-900" />
                         <span>Complete Order</span>
                       </button>
                       <button
@@ -321,8 +321,8 @@ export function OrdersTab() {
           })}
         </div>
       ) : (
-        <div className="min-h-[250px] bg-slate-50 dark:bg-slate-950/20 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-10 space-y-2.5">
-          <ShoppingCart className="w-9 h-9 text-slate-300 dark:text-slate-700" />
+        <div className="min-h-[250px] bg-slate-50 dark:bg-slate-50/20 border border-dashed border-slate-200 dark:border-slate-200 rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-400 py-10 space-y-2.5">
+          <ShoppingCart className="w-9 h-9 text-slate-700 dark:text-slate-700" />
           <p className="text-xs font-semibold">No pizza orders matched filters</p>
           <span className="text-[10px] text-slate-400 block">Orders created by customers using WhatsApp Bot will display here.</span>
         </div>

@@ -158,15 +158,15 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl space-y-5">
+    <div className="fixed inset-0 z-50 bg-slate-50/70 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-2xl space-y-5">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-200">
           <div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">Import Customer Contacts</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-900">Import Customer Contacts</h3>
             <p className="text-xs text-slate-400">Step {step} of 4</p>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white p-1 rounded-lg">
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-900 p-1 rounded-lg">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -181,7 +181,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
         {/* Step 1: Upload File */}
         {step === 1 && (
           <div className="space-y-5 py-3">
-            <div className="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-8 text-center bg-slate-50/50 dark:bg-slate-950/20">
+            <div className="border-2 border-dashed border-slate-200 dark:border-slate-200 rounded-2xl p-8 text-center bg-slate-50/50 dark:bg-slate-50/20">
               <input
                 type="file"
                 id="modalFileUpload"
@@ -194,7 +194,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
                   <Upload className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900 dark:text-white">
+                  <p className="text-xs font-bold text-slate-900 dark:text-slate-900">
                     Click to browse or drag CSV/Excel spreadsheet
                   </p>
                   <p className="text-[10px] text-slate-400 mt-1">Accepts CSV or XLSX templates</p>
@@ -218,7 +218,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
         {step === 2 && (
           <div className="space-y-4">
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-slate-700 dark:text-slate-300">Extracted Raw Columns</span>
+              <span className="font-bold text-slate-700 dark:text-slate-700">Extracted Raw Columns</span>
               <button
                 onClick={() => setStep(3)}
                 className="text-primary font-bold hover:underline flex items-center gap-0.5"
@@ -227,9 +227,9 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
               </button>
             </div>
 
-            <div className="max-h-56 overflow-y-auto border border-slate-200 dark:border-slate-800 rounded-xl">
-              <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
-                <thead className="bg-slate-50 dark:bg-slate-800/80 text-[10px] tracking-wider uppercase text-slate-500">
+            <div className="max-h-56 overflow-y-auto border border-slate-200 dark:border-slate-200 rounded-xl">
+              <table className="w-full text-left text-xs text-slate-600 dark:text-slate-700">
+                <thead className="bg-slate-50 dark:bg-slate-100/80 text-[10px] tracking-wider uppercase text-slate-400">
                   <tr>
                     <th className="py-2 px-3">Name</th>
                     <th className="py-2 px-3">Mobile</th>
@@ -239,7 +239,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                   {parsedRows.slice(0, 10).map((row, i) => (
                     <tr key={i}>
-                      <td className="py-2 px-3 font-semibold text-slate-900 dark:text-white">{row.name}</td>
+                      <td className="py-2 px-3 font-semibold text-slate-900 dark:text-slate-900">{row.name}</td>
                       <td className="py-2 px-3 font-mono">{row.mobile}</td>
                       <td className="py-2 px-3 text-slate-400">{row.email || 'N/A'}</td>
                     </tr>
@@ -255,8 +255,8 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
         {step === 3 && (
           <div className="space-y-5">
             <div className="grid grid-cols-3 gap-3">
-              <div className="p-3.5 bg-slate-50 dark:bg-slate-950/60 rounded-xl text-center border border-slate-100 dark:border-slate-805">
-                <span className="text-xl font-bold text-slate-800 dark:text-white">{validationStats.total}</span>
+              <div className="p-3.5 bg-slate-50 dark:bg-slate-50/60 rounded-xl text-center border border-slate-100 dark:border-slate-805">
+                <span className="text-xl font-bold text-slate-800 dark:text-slate-900">{validationStats.total}</span>
                 <p className="text-[10px] text-slate-400 mt-1">Total Contacts</p>
               </div>
               <div className="p-3.5 bg-primary-light rounded-xl text-center border border-primary/20">
@@ -279,16 +279,16 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
             <div className="flex gap-3 justify-end pt-2">
               <button
                 onClick={() => setStep(2)}
-                className="py-2 px-4 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                className="py-2 px-4 rounded-xl border border-slate-200 dark:border-slate-200 text-xs font-semibold text-slate-400 hover:text-slate-900 dark:hover:text-slate-900"
               >
                 Back to Preview
               </button>
               <button
                 onClick={handleImport}
                 disabled={isImporting || validationStats.valid === 0}
-                className="py-2.5 px-6 bg-primary hover:bg-primary-hover font-semibold text-white text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shadow-primary/20 disabled:opacity-50"
+                className="py-2.5 px-6 bg-primary hover:bg-primary-hover font-semibold text-slate-900 text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shadow-primary/20 disabled:opacity-50"
               >
-                {isImporting ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : 'Confirm & Execute Import'}
+                {isImporting ? <Loader2 className="w-4 h-4 animate-spin text-slate-900" /> : 'Confirm & Execute Import'}
               </button>
             </div>
           </div>
@@ -299,7 +299,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
           <div className="space-y-5 text-center py-4">
             <CheckCircle2 className="w-12 h-12 text-primary mx-auto" />
             <div>
-              <h3 className="text-base font-extrabold text-slate-900 dark:text-white">Import Job Succeeded</h3>
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-slate-900">Import Job Succeeded</h3>
               <p className="text-xs text-slate-400 mt-1">Contacts have been merged into your main directory</p>
             </div>
 
@@ -317,7 +317,7 @@ export default function BulkImportModal({ isOpen, onClose, onImportSuccess }: Bu
 
             <button
               onClick={onClose}
-              className="py-2 px-6 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-200 text-xs font-semibold rounded-xl"
+              className="py-2 px-6 bg-white border border-slate-200 hover:border-slate-700 text-slate-800 text-xs font-semibold rounded-xl"
             >
               Close Window
             </button>

@@ -18,7 +18,8 @@ import {
   CalendarDays,
   FileSpreadsheet,
   Check,
-  Upload
+  Upload,
+  AlertCircle
 } from 'lucide-react';
 import { api } from '../../lib/api';
 import { formatDate } from '../../lib/utils';
@@ -289,31 +290,31 @@ export function CampaignsTab() {
   };
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-300">
+    <div className="space-y-4 animate-in fade-in duration-300 min-h-[calc(100vh-120px)] flex flex-col">
       {/* Header bar */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
             <Megaphone className="w-5 h-5 text-primary" />
             <span>Campaign Manager</span>
           </h1>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+          <p className="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">
             Configure bulk WhatsApp alerts and queue marketing schedules via BullMQ
           </p>
         </div>
 
         <button
           onClick={() => setIsCreating(!isCreating)}
-          className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-white text-xs rounded-lg transition-all flex items-center gap-1.5 shadow"
+          className="px-3.5 py-1.5 bg-primary hover:bg-primary-hover font-bold text-slate-900 text-xs rounded-lg transition-all flex items-center gap-1.5 shadow"
         >
           {isCreating ? (
             <>
-              <X className="w-3.5 h-3.5 text-white" />
+              <X className="w-3.5 h-3.5 text-slate-900" />
               <span>Cancel Campaign</span>
             </>
           ) : (
             <>
-              <Plus className="w-3.5 h-3.5 text-white" />
+              <Plus className="w-3.5 h-3.5 text-slate-900" />
               <span>Create Campaign</span>
             </>
           )}
@@ -322,9 +323,9 @@ export function CampaignsTab() {
 
       {isCreating ? (
         /* SINGLE PAGE WORKFLOW builder */
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1">
           {/* Main setup columns */}
-          <div className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md flex flex-col justify-between space-y-4 transition-colors">
+          <div className="lg:col-span-2 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md flex flex-col justify-between space-y-4 transition-colors">
             <div className="space-y-4">
               {/* Row 1 inputs */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -335,7 +336,7 @@ export function CampaignsTab() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="E.g. Festival VIP Promotion"
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-900 dark:text-slate-100 placeholder-slate-550 focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-900 dark:text-slate-100 placeholder-slate-550 focus:outline-none focus:border-primary/50"
                   />
                 </div>
 
@@ -344,7 +345,7 @@ export function CampaignsTab() {
                   <select
                     value={type}
                     onChange={(e) => setType(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-700 dark:text-slate-305 focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-700 dark:text-slate-305 focus:outline-none focus:border-primary/50"
                   >
                     <option value="Offer">Offer Campaign</option>
                     <option value="Festival">Festival Campaign</option>
@@ -362,7 +363,7 @@ export function CampaignsTab() {
                       className={`py-1.5 rounded-lg text-[11px] font-bold border transition-colors ${
                         scheduleOption === 'now'
                           ? 'bg-primary-light border-primary/35 text-primary'
-                          : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-550 dark:text-slate-400'
+                          : 'bg-slate-50 dark:bg-slate-50 border-slate-200 dark:border-slate-200 text-slate-550 dark:text-slate-400'
                       }`}
                     >
                       Now
@@ -373,7 +374,7 @@ export function CampaignsTab() {
                       className={`py-1.5 rounded-lg text-[11px] font-bold border transition-colors ${
                         scheduleOption === 'later'
                           ? 'bg-primary-light border-primary/35 text-primary'
-                          : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-550 dark:text-slate-400'
+                          : 'bg-slate-50 dark:bg-slate-50 border-slate-200 dark:border-slate-200 text-slate-550 dark:text-slate-400'
                       }`}
                     >
                       Schedule
@@ -391,7 +392,7 @@ export function CampaignsTab() {
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="https://images.unsplash.com/photo-example... (Sends image with caption)"
-                    className="flex-1 px-3 py-2 bg-slate-55 dark:bg-slate-950 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-900 dark:text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary/50"
+                    className="flex-1 px-3 py-2 bg-slate-55 dark:bg-slate-50 border border-slate-200 dark:border-slate-805 rounded-lg text-xs text-slate-900 dark:text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary/50"
                   />
                   <input
                     type="file"
@@ -402,7 +403,7 @@ export function CampaignsTab() {
                   />
                   <label
                     htmlFor="campaignImageUploadFile"
-                    className="px-3 py-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-250 dark:border-slate-800 rounded-lg text-xs text-slate-700 dark:text-slate-350 cursor-pointer font-bold flex items-center gap-1.5 shrink-0 transition-colors"
+                    className="px-3 py-2 bg-slate-50 dark:bg-white hover:bg-slate-100 dark:hover:bg-slate-100 border border-slate-250 dark:border-slate-200 rounded-lg text-xs text-slate-700 dark:text-slate-350 cursor-pointer font-bold flex items-center gap-1.5 shrink-0 transition-colors"
                   >
                     {isUploadingImage ? (
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />
@@ -416,15 +417,15 @@ export function CampaignsTab() {
 
               {/* Schedule time pick */}
               {scheduleOption === 'later' && (
-                <div className="p-2.5 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 rounded-lg flex items-center gap-3 animate-in fade-in duration-200">
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-50/60 border border-slate-200 dark:border-slate-850 rounded-lg flex items-center gap-3 animate-in fade-in duration-200">
                   <CalendarDays className="w-4.5 h-4.5 text-primary shrink-0" />
                   <div className="flex-1 space-y-0.5">
-                    <span className="text-[9px] font-bold text-slate-500 dark:text-slate-450 uppercase block">Broadcast Execution Date</span>
+                    <span className="text-[9px] font-bold text-slate-400 dark:text-slate-450 uppercase block">Broadcast Execution Date</span>
                     <input
                       type="datetime-local"
                       value={scheduledAt}
                       onChange={(e) => setScheduledAt(e.target.value)}
-                      className="bg-transparent text-xs text-slate-800 dark:text-slate-200 focus:outline-none border-b border-slate-300 dark:border-slate-800 pb-0.5 w-full max-w-[200px]"
+                      className="bg-transparent text-xs text-slate-800 dark:text-slate-800 focus:outline-none border-b border-slate-300 dark:border-slate-200 pb-0.5 w-full max-w-[200px]"
                     />
                   </div>
                 </div>
@@ -439,35 +440,35 @@ export function CampaignsTab() {
                     <button
                       type="button"
                       onClick={() => setMessage((m) => m + ' {{customer_name}}')}
-                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                     >
                       + Name
                     </button>
                     <button
                       type="button"
                       onClick={() => setMessage((m) => m + ' {{business_name}}')}
-                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                     >
                       + Business
                     </button>
                     <button
                       type="button"
                       onClick={() => setMessage((m) => m + ' {{customer_email}}')}
-                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                     >
                       + Email
                     </button>
                     <button
                       type="button"
                       onClick={() => setMessage((m) => m + ' {{customer_mobile}}')}
-                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                     >
                       + Mobile
                     </button>
                     <button
                       type="button"
                       onClick={() => setMessage((m) => m + ' {{date_today}}')}
-                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-800 text-[9px] font-mono text-primary rounded transition-colors"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-slate-50 hover:bg-slate-200 dark:hover:bg-slate-850 border border-slate-250 dark:border-slate-200 text-[9px] font-mono text-primary rounded transition-colors"
                     >
                       + Date
                     </button>
@@ -491,8 +492,8 @@ export function CampaignsTab() {
               </div>
 
               {/* Call to Action Button section */}
-              <div className="p-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl space-y-3">
-                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Interactive Link Button (Optional)</span>
+              <div className="p-3.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-xl space-y-3">
+                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Interactive Link Button (Optional)</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1">
                     <span className="text-[9px] font-bold text-slate-450 block uppercase">Button Display Text</span>
@@ -501,7 +502,7 @@ export function CampaignsTab() {
                       value={buttonText}
                       onChange={(e) => setButtonText(e.target.value)}
                       placeholder="e.g. Buy Now, Shop Now"
-                      className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary/50"
+                      className="w-full px-3 py-2 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50"
                     />
                   </div>
 
@@ -512,17 +513,17 @@ export function CampaignsTab() {
                       value={buttonUrl}
                       onChange={(e) => setButtonUrl(e.target.value)}
                       placeholder="e.g. https://example.com/shop?user={{customer_name}}"
-                      className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary/50"
+                      className="w-full px-3 py-2 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary/50"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Audience Targets configurations */}
-              <div className="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3">
+              <div className="space-y-2 border-t border-slate-200 dark:border-slate-200 pt-3">
                 <div>
                   <label className="text-[10px] font-bold text-slate-550 dark:text-slate-400 uppercase tracking-wider">Configure Recipients Target</label>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400">Choose who receives this campaign blast</p>
+                  <p className="text-[10px] text-slate-400 dark:text-slate-400">Choose who receives this campaign blast</p>
                 </div>
 
                 <div className="flex gap-2">
@@ -534,7 +535,7 @@ export function CampaignsTab() {
                       className={`px-3.5 py-1.5 rounded-lg text-xs font-bold border transition-all ${
                         targetType === mode
                           ? 'bg-primary-light border-primary/35 text-primary shadow-sm'
-                          : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-550 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                          : 'bg-slate-50 dark:bg-slate-50 border-slate-200 dark:border-slate-200 text-slate-550 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-800'
                       }`}
                     >
                       {mode === 'all' ? 'All CRM Directory' : mode === 'tags' ? 'Filter by Tag Segments' : 'Choose Specific'}
@@ -544,7 +545,7 @@ export function CampaignsTab() {
 
                 {/* Tags filtering configuration */}
                 {targetType === 'tags' && (
-                  <div className="p-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl space-y-2 animate-in fade-in duration-200">
+                  <div className="p-3 bg-slate-50 dark:bg-slate-50/60 border border-slate-200 dark:border-slate-200 rounded-xl space-y-2 animate-in fade-in duration-200">
                     <span className="text-[9px] font-bold text-slate-450 uppercase block">Select Target Segment Tags</span>
                     <div className="flex flex-wrap gap-2">
                       {Object.keys(tagCounts).length > 0 ? (
@@ -558,7 +559,7 @@ export function CampaignsTab() {
                               className={`px-2 py-1 rounded border text-[10px] font-bold flex items-center gap-1 transition-all ${
                                 isSel
                                   ? 'bg-primary/10 border-primary text-primary shadow-sm'
-                                  : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400'
+                                  : 'bg-white dark:bg-white border-slate-200 dark:border-slate-200 text-slate-400 dark:text-slate-400'
                               }`}
                             >
                               <span>{tag}</span>
@@ -567,7 +568,7 @@ export function CampaignsTab() {
                           );
                         })
                       ) : (
-                        <div className="text-[10px] text-slate-500">No segment tags exist in the CRM.</div>
+                        <div className="text-[10px] text-slate-400">No segment tags exist in the CRM.</div>
                       )}
                     </div>
                   </div>
@@ -575,28 +576,28 @@ export function CampaignsTab() {
 
                 {/* Specific contacts picker checklist */}
                 {targetType === 'specific' && (
-                  <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 space-y-2.5 animate-in fade-in duration-200">
+                  <div className="bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-xl p-3 space-y-2.5 animate-in fade-in duration-200">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                      <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                      <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">
                         Select Contacts checklist ({selectedCustomers.length} selected)
                       </span>
 
                       {/* Local Filter Bar */}
                       <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded px-2 py-0.5">
+                        <div className="flex items-center gap-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded px-2 py-0.5">
                           <Search className="w-3 h-3 text-slate-400" />
                           <input
                             type="text"
                             value={customerSearch}
                             onChange={(e) => setCustomerSearch(e.target.value)}
                             placeholder="Filter checklist..."
-                            className="bg-transparent text-[10px] text-slate-900 dark:text-white focus:outline-none w-24"
+                            className="bg-transparent text-[10px] text-slate-900 dark:text-slate-900 focus:outline-none w-24"
                           />
                         </div>
                         <select
                           value={customerTagFilter}
                           onChange={(e) => setCustomerTagFilter(e.target.value)}
-                          className="px-1.5 py-0.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded text-[9px] text-slate-550 dark:text-slate-350 focus:outline-none"
+                          className="px-1.5 py-0.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-850 rounded text-[9px] text-slate-550 dark:text-slate-350 focus:outline-none"
                         >
                           <option value="">Any Tag</option>
                           {Object.keys(tagCounts).map((t) => (
@@ -607,10 +608,10 @@ export function CampaignsTab() {
                     </div>
 
                     {/* Virtual List Wrapper */}
-                    <div className="max-h-40 overflow-y-auto border border-slate-200 dark:border-slate-805 rounded-lg divide-y divide-slate-105 dark:divide-slate-850 bg-white dark:bg-slate-900/60 transition-colors">
+                    <div className="max-h-40 overflow-y-auto border border-slate-200 dark:border-slate-805 rounded-lg divide-y divide-slate-105 dark:divide-slate-850 bg-white dark:bg-white/60 transition-colors">
                       {filteredCustomersForTargeting.length > 0 && (
-                        <div className="p-2 bg-slate-50 dark:bg-slate-950 flex items-center justify-between border-b border-slate-200 dark:border-slate-850">
-                          <span className="text-[9px] font-bold text-slate-500">Apply Filter selection</span>
+                        <div className="p-2 bg-slate-50 dark:bg-slate-50 flex items-center justify-between border-b border-slate-200 dark:border-slate-850">
+                          <span className="text-[9px] font-bold text-slate-400">Apply Filter selection</span>
                           <button
                             type="button"
                             onClick={handleToggleSelectAllFiltered}
@@ -628,7 +629,7 @@ export function CampaignsTab() {
                             <div
                               key={cust._id}
                               onClick={() => handleToggleCustomerSelect(cust._id)}
-                              className={`flex items-center justify-between p-2 cursor-pointer transition-colors text-[10px] hover:bg-slate-100 dark:hover:bg-slate-900/60 ${
+                              className={`flex items-center justify-between p-2 cursor-pointer transition-colors text-[10px] hover:bg-slate-100 dark:hover:bg-white/60 ${
                                 isChecked ? 'bg-primary-light/40' : ''
                               }`}
                             >
@@ -636,19 +637,19 @@ export function CampaignsTab() {
                                 <div
                                   className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-colors ${
                                     isChecked
-                                      ? 'bg-primary border-primary text-white'
-                                      : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950'
+                                      ? 'bg-primary border-primary text-slate-900'
+                                      : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-50'
                                   }`}
                                 >
-                                  {isChecked && <Check className="w-2.5 h-2.5 text-white stroke-[3.5]" />}
+                                  {isChecked && <Check className="w-2.5 h-2.5 text-slate-900 stroke-[3.5]" />}
                                 </div>
-                                <span className="font-semibold text-slate-850 dark:text-slate-200">{cust.name}</span>
+                                <span className="font-semibold text-slate-850 dark:text-slate-800">{cust.name}</span>
                                 <span className="font-mono text-[9px] text-slate-400 font-normal">({cust.mobile})</span>
                               </div>
 
                               <div className="flex gap-1">
                                 {(cust.tags || []).map((t: string) => (
-                                  <span key={t} className="px-1 rounded bg-slate-200 dark:bg-slate-950 text-[8px] text-slate-500 font-bold">
+                                  <span key={t} className="px-1 rounded bg-slate-200 dark:bg-slate-50 text-[8px] text-slate-400 font-bold">
                                     {t}
                                   </span>
                                 ))}
@@ -657,7 +658,7 @@ export function CampaignsTab() {
                           );
                         })
                       ) : (
-                        <div className="p-4 text-center text-slate-500 text-[10px]">No targeting matches.</div>
+                        <div className="p-4 text-center text-slate-400 text-[10px]">No targeting matches.</div>
                       )}
                     </div>
                   </div>
@@ -666,8 +667,8 @@ export function CampaignsTab() {
             </div>
 
             {/* Form submission controls */}
-            <div className="flex items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-3 mt-3 shrink-0">
-              <span className="text-[10px] text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between border-t border-slate-200 dark:border-slate-200 pt-3 mt-3 shrink-0">
+              <span className="text-[10px] text-slate-400 dark:text-slate-400">
                 {targetType === 'all'
                   ? 'This broadcast will dispatch to ALL CRM directory customers.'
                   : targetType === 'tags'
@@ -680,7 +681,7 @@ export function CampaignsTab() {
                   type="button"
                   onClick={() => handleSaveCampaign('Draft')}
                   disabled={isSubmitting}
-                  className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-950 border border-slate-250 dark:border-slate-800 text-slate-650 dark:text-slate-300 font-bold rounded-lg text-xs hover:bg-slate-200"
+                  className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-50 border border-slate-250 dark:border-slate-200 text-slate-650 dark:text-slate-700 font-bold rounded-lg text-xs hover:bg-slate-200"
                 >
                   Save Draft
                 </button>
@@ -689,13 +690,13 @@ export function CampaignsTab() {
                   type="button"
                   onClick={() => handleSaveCampaign(scheduleOption === 'later' ? 'Scheduled' : undefined)}
                   disabled={isSubmitting}
-                  className="px-4 py-1.5 bg-primary text-white font-bold text-xs rounded-lg hover:bg-primary-hover flex items-center gap-1 shadow disabled:opacity-50"
+                  className="px-4 py-1.5 bg-primary text-slate-900 font-bold text-xs rounded-lg hover:bg-primary-hover flex items-center gap-1 shadow disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
                   ) : (
                     <>
-                      <Send className="w-3.5 h-3.5 text-white" />
+                      <Send className="w-3.5 h-3.5 text-slate-900" />
                       <span>{scheduleOption === 'later' ? 'Schedule Broadcast' : 'Launch Campaign'}</span>
                     </>
                   )}
@@ -705,17 +706,17 @@ export function CampaignsTab() {
           </div>
 
           {/* Right Preview Mockup Smartphone (WA Mockup) */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-205 dark:border-slate-800 rounded-xl p-4 shadow-md flex flex-col justify-between h-[450px] transition-colors">
+          <div className="bg-white dark:bg-white border border-slate-205 dark:border-slate-200 rounded-xl p-4 shadow-md flex flex-col justify-between h-[450px] transition-colors">
             <div>
               <span className="text-[10px] font-bold text-slate-550 dark:text-slate-400 uppercase tracking-wider block">Visual Mockup Live Preview</span>
               <p className="text-[10px] text-slate-400 mt-0.5">Real-time simulation of incoming WhatsApp message UI</p>
             </div>
 
             {/* WA frame layout */}
-            <div className="flex-1 w-full bg-[#f0f2f5] dark:bg-[#0b141a] rounded-xl p-3 overflow-y-auto flex flex-col justify-end space-y-2 relative my-3 border border-slate-200 dark:border-slate-800 transition-colors">
+            <div className="flex-1 w-full bg-[#f0f2f5] dark:bg-[#0b141a] rounded-xl p-3 overflow-y-auto flex flex-col justify-end space-y-2 relative my-3 border border-slate-200 dark:border-slate-200 transition-colors">
               {/* Simulated chat timeline bubble */}
               <div className="flex justify-start">
-                <div className="bg-white dark:bg-[#202c33] border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-2.5 rounded-xl rounded-tl-none text-[11px] max-w-[85%] shadow space-y-1 transition-colors">
+                <div className="bg-white dark:bg-[#202c33] border border-slate-200 dark:border-slate-200 text-slate-900 dark:text-slate-900 p-2.5 rounded-xl rounded-tl-none text-[11px] max-w-[85%] shadow space-y-1 transition-colors">
                   <span className="text-[9px] text-primary font-bold block">Business Dispatcher</span>
                   {imageUrl && imageUrl.trim().startsWith('http') && (
                     <img
@@ -732,22 +733,22 @@ export function CampaignsTab() {
                           .replace(/{{business_name}}/g, 'Workspace Store')
                       : 'Type a message to preview live formatting...'}
                   </p>
-                  <span className="text-[8px] text-slate-450 dark:text-slate-500 text-right block leading-none">10:00 AM</span>
+                  <span className="text-[8px] text-slate-450 dark:text-slate-400 text-right block leading-none">10:00 AM</span>
                 </div>
               </div>
             </div>
 
-            <div className="text-center text-[10px] text-slate-500">
+            <div className="text-center text-[10px] text-slate-400">
               Personalisation parameters will replace values on execution.
             </div>
           </div>
         </div>
       ) : (
         /* Campaigns Data Grid table */
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-md overflow-hidden transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl shadow-md overflow-hidden transition-colors">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-slate-600 dark:text-slate-350">
-              <thead className="bg-slate-50 dark:bg-slate-950/60 uppercase text-[9px] tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-800">
+              <thead className="bg-slate-50 dark:bg-slate-50/60 uppercase text-[9px] tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-200">
                 <tr>
                   <th className="py-3 px-4">Campaign Name</th>
                   <th className="py-3 px-4">Type</th>
@@ -760,20 +761,20 @@ export function CampaignsTab() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {isLoading ? (
                   <tr>
-                    <td colSpan={6} className="py-12 text-center text-slate-500">
+                    <td colSpan={6} className="py-12 text-center text-slate-400">
                       <Loader2 className="w-6 h-6 animate-spin mx-auto text-primary mb-2" />
                       Loading campaigns...
                     </td>
                   </tr>
                 ) : campaigns.length > 0 ? (
                   campaigns.map((camp) => (
-                    <tr key={camp._id} className="hover:bg-slate-550/5 dark:hover:bg-slate-950/20 transition-colors">
-                      <td className="py-3 px-4 font-semibold text-slate-850 dark:text-slate-200">
+                    <tr key={camp._id} className="hover:bg-slate-550/5 dark:hover:bg-slate-50/20 transition-colors">
+                      <td className="py-3 px-4 font-semibold text-slate-850 dark:text-slate-800">
                         {camp.name}
-                        <div className="text-[10px] font-normal text-slate-500 dark:text-slate-450 truncate max-w-xs">{camp.message}</div>
+                        <div className="text-[10px] font-normal text-slate-400 dark:text-slate-450 truncate max-w-xs">{camp.message}</div>
                       </td>
                       <td className="py-3 px-4">
-                        <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-650 dark:text-slate-400">
+                        <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 text-slate-650 dark:text-slate-400">
                           {camp.type}
                         </span>
                       </td>
@@ -786,8 +787,12 @@ export function CampaignsTab() {
                           <span className="inline-flex items-center gap-1 text-amber-500 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
                             <Clock className="w-3 h-3 animate-spin animate-duration-1000" /> {camp.status}
                           </span>
+                        ) : camp.status === 'Failed' ? (
+                          <span className="inline-flex items-center gap-1 text-rose-500 bg-rose-500/10 px-2.5 py-0.5 rounded-full border border-rose-500/20">
+                            <AlertCircle className="w-3 h-3" /> Failed
+                          </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-950/80 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-800">
+                          <span className="inline-flex items-center gap-1 text-slate-400 dark:text-slate-400 bg-slate-100 dark:bg-slate-50/80 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-200">
                             Draft
                           </span>
                         )}
@@ -806,12 +811,12 @@ export function CampaignsTab() {
                               }}
                             ></div>
                           </div>
-                          <span className="text-[9px] font-semibold font-mono text-slate-500 dark:text-slate-400">
+                          <span className="text-[9px] font-semibold font-mono text-slate-400 dark:text-slate-400">
                             {camp.stats?.sent || 0}/{camp.stats?.total || 0}
                           </span>
                         </div>
                       </td>
-                      <td className="py-3 px-4 text-slate-500 dark:text-slate-450 text-[11px]">
+                      <td className="py-3 px-4 text-slate-400 dark:text-slate-450 text-[11px]">
                         {formatDate(camp.createdAt)}
                       </td>
                       <td className="py-3 px-4 text-right space-x-1.5">
@@ -819,7 +824,7 @@ export function CampaignsTab() {
                           <button
                             onClick={() => handleLaunch(camp._id)}
                             title="Launch Campaign"
-                            className="p-1 rounded bg-primary text-white hover:bg-primary-hover shadow-sm"
+                            className="p-1 rounded bg-primary text-slate-900 hover:bg-primary-hover shadow-sm"
                           >
                             <Send className="w-3.5 h-3.5" />
                           </button>
@@ -827,7 +832,7 @@ export function CampaignsTab() {
                         <button
                           onClick={() => handleDelete(camp._id)}
                           title="Delete Campaign"
-                          className="p-1 rounded bg-slate-100 hover:bg-rose-500/10 text-slate-500 hover:text-rose-500 dark:bg-slate-950/60 dark:hover:bg-rose-500/10 transition-colors"
+                          className="p-1 rounded bg-slate-100 hover:bg-rose-500/10 text-slate-400 hover:text-rose-500 dark:bg-slate-50/60 dark:hover:bg-rose-500/10 transition-colors"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -836,7 +841,7 @@ export function CampaignsTab() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={6} className="py-12 text-center text-slate-500">
+                    <td colSpan={6} className="py-12 text-center text-slate-400">
                       No campaigns launched yet. Start by creating a campaign!
                     </td>
                   </tr>
@@ -849,18 +854,18 @@ export function CampaignsTab() {
 
       {/* Custom Dialog Box Modal overlay */}
       {dialog.isOpen && (
-        <div className="fixed inset-0 z-[100] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-205 dark:border-slate-800 rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-[100] bg-slate-50/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-white border border-slate-205 dark:border-slate-200 rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in zoom-in-95 duration-150">
             <div className="space-y-1">
-              <h3 className="text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <h3 className="text-sm font-extrabold text-slate-900 dark:text-slate-900 flex items-center gap-1.5">
                 <Info className="w-4 h-4 text-primary shrink-0" />
                 <span>{dialog.title}</span>
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">{dialog.description}</p>
+              <p className="text-slate-400 dark:text-slate-400 text-[11px] leading-relaxed">{dialog.description}</p>
             </div>
 
             {dialog.type === 'prompt_link' && (
-              <div className="space-y-3 p-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl">
+              <div className="space-y-3 p-3.5 bg-slate-50 dark:bg-slate-50 border border-slate-200 dark:border-slate-850 rounded-xl">
                 <div className="space-y-1">
                   <span className="text-[8px] font-bold text-slate-450 uppercase block">Link Button Text / Label</span>
                   <input
@@ -868,7 +873,7 @@ export function CampaignsTab() {
                     value={dialogLinkLabel}
                     onChange={(e) => setDialogLinkLabel(e.target.value)}
                     placeholder="e.g. Shop Now"
-                    className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-primary/50"
                   />
                 </div>
                 <div className="space-y-1">
@@ -878,17 +883,17 @@ export function CampaignsTab() {
                     value={dialogLinkUrl}
                     onChange={(e) => setDialogLinkUrl(e.target.value)}
                     placeholder="e.g. https://example.com/shop?user={{customer_name}}"
-                    className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-primary/50"
+                    className="w-full px-3 py-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-lg text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-primary/50"
                   />
                 </div>
               </div>
             )}
 
-            <div className="flex justify-end gap-2 border-t border-slate-100 dark:border-slate-800 pt-3 mt-1">
+            <div className="flex justify-end gap-2 border-t border-slate-100 dark:border-slate-200 pt-3 mt-1">
               <button
                 type="button"
                 onClick={closeDialog}
-                className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-850 text-slate-600 dark:text-slate-300 font-bold rounded-lg text-xs hover:bg-slate-200 transition-colors"
+                className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-850 text-slate-600 dark:text-slate-700 font-bold rounded-lg text-xs hover:bg-slate-200 transition-colors"
               >
                 {dialog.type === 'alert' ? 'Close' : 'Cancel'}
               </button>
@@ -908,7 +913,7 @@ export function CampaignsTab() {
                       dialog.onConfirm();
                     }
                   }}
-                  className="px-4 py-1.5 bg-primary text-white font-bold rounded-lg text-xs hover:bg-primary-hover shadow transition-colors"
+                  className="px-4 py-1.5 bg-primary text-slate-900 font-bold rounded-lg text-xs hover:bg-primary-hover shadow transition-colors"
                 >
                   Confirm
                 </button>

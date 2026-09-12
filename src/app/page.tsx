@@ -24,7 +24,7 @@ export default function HomePage() {
   }, [isInitialized, accessToken, user, router]);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-slate-400 space-y-3">
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center text-slate-400 space-y-3">
       <Loader2 className="w-8 h-8 text-emerald-500 animate-spin" />
       <p className="text-xs font-medium">Redirecting to WhatsApp Automation Platform...</p>
     </div>

@@ -26,19 +26,19 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Page Title */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2.5">
           <SettingsIcon className="w-7 h-7 text-emerald-500" />
           <span>Platform & Business Settings</span>
         </h1>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-xs text-slate-400 dark:text-slate-400 mt-1">
           Manage your business account profile, WhatsApp integration preferences & theme appearance
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Business Profile Information Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-200">
             <User className="w-4 h-4 text-emerald-500" />
             <span>Business Profile Details</span>
           </h3>
@@ -46,29 +46,29 @@ export default function SettingsPage() {
           <div className="space-y-3 text-xs">
             <div>
               <span className="text-slate-400">Full Name</span>
-              <p className="font-semibold text-slate-900 dark:text-white mt-0.5">{user?.fullName || 'N/A'}</p>
+              <p className="font-semibold text-slate-900 dark:text-slate-900 mt-0.5">{user?.fullName || 'N/A'}</p>
             </div>
 
             <div>
               <span className="text-slate-400">Business Name</span>
-              <p className="font-semibold text-slate-900 dark:text-white mt-0.5">{user?.businessName || 'N/A'}</p>
+              <p className="font-semibold text-slate-900 dark:text-slate-900 mt-0.5">{user?.businessName || 'N/A'}</p>
             </div>
 
             <div>
               <span className="text-slate-400">Registered Email</span>
-              <p className="font-semibold text-slate-900 dark:text-white mt-0.5">{user?.email || 'N/A'}</p>
+              <p className="font-semibold text-slate-900 dark:text-slate-900 mt-0.5">{user?.email || 'N/A'}</p>
             </div>
 
             <div>
               <span className="text-slate-400">Mobile Phone</span>
-              <p className="font-semibold text-slate-900 dark:text-white mt-0.5">{user?.mobile || 'N/A'}</p>
+              <p className="font-semibold text-slate-900 dark:text-slate-900 mt-0.5">{user?.mobile || 'N/A'}</p>
             </div>
           </div>
         </div>
 
         {/* WhatsApp Integration Settings Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-200">
             <QrCode className="w-4 h-4 text-emerald-500" />
             <span>WhatsApp Session Settings</span>
           </h3>
@@ -81,7 +81,7 @@ export default function SettingsPage() {
 
             <div>
               <span className="text-slate-400">Connected Phone Number</span>
-              <p className="font-mono text-slate-900 dark:text-white mt-0.5">
+              <p className="font-mono text-slate-900 dark:text-slate-900 mt-0.5">
                 {connectedNumber ? `+${connectedNumber}` : 'Not Connected'}
               </p>
             </div>
@@ -100,8 +100,8 @@ export default function SettingsPage() {
       </div>
 
       {/* Theme & Appearance Options */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+      <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-200">
           <ShieldCheck className="w-4 h-4 text-emerald-500" />
           <span>Theme & Interface Preferences</span>
         </h3>
@@ -111,8 +111,8 @@ export default function SettingsPage() {
             onClick={() => setTheme('light')}
             className={`py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center gap-2 border transition-all ${
               theme === 'light'
-                ? 'bg-emerald-500 text-slate-950 border-emerald-500 shadow-md'
-                : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-white'
+                ? 'bg-emerald-500 text-white border-emerald-500 shadow-md'
+                : 'border-slate-200 dark:border-slate-200 text-slate-400 hover:text-slate-900'
             }`}
           >
             <Sun className="w-4 h-4" />
@@ -123,8 +123,8 @@ export default function SettingsPage() {
             onClick={() => setTheme('dark')}
             className={`py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center gap-2 border transition-all ${
               theme === 'dark'
-                ? 'bg-emerald-500 text-slate-950 border-emerald-500 shadow-md'
-                : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-white'
+                ? 'bg-emerald-500 text-white border-emerald-500 shadow-md'
+                : 'border-slate-200 dark:border-slate-200 text-slate-400 hover:text-slate-900'
             }`}
           >
             <Moon className="w-4 h-4" />

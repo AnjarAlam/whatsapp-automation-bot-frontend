@@ -114,47 +114,47 @@ export function AnalyticsTab() {
     <div className="space-y-4 animate-in fade-in duration-300">
       {/* Title */}
       <div>
-        <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2">
           <BarChart3 className="w-5 h-5 text-primary" />
           <span>Analytics Reports</span>
         </h1>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Campaign conversion data and response trend tracking</p>
+        <p className="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">Campaign conversion data and response trend tracking</p>
       </div>
 
       {/* Row 1 cards */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
-          <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Total Dispatched</span>
-          <p className="text-xl font-black text-slate-900 dark:text-white">{metrics.sent}</p>
-          <div className="text-[8px] text-slate-500 leading-none">All campaigns combined</div>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
+          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Total Dispatched</span>
+          <p className="text-xl font-black text-slate-900 dark:text-slate-900">{metrics.sent}</p>
+          <div className="text-[8px] text-slate-400 leading-none">All campaigns combined</div>
         </div>
 
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
-          <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Delivered</span>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
+          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Delivered</span>
           <p className="text-xl font-black text-primary">{metrics.delivered}</p>
           <div className="text-[8px] text-primary/80 leading-none">
             {Math.round((metrics.delivered / metrics.sent) * 100 || 0)}% Delivery Rate
           </div>
         </div>
 
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
-          <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Message Reads</span>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
+          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Message Reads</span>
           <p className="text-xl font-black text-blue-500 dark:text-blue-400">{metrics.read}</p>
           <div className="text-[8px] text-blue-500/80 leading-none">
             {Math.round((metrics.read / metrics.delivered) * 100 || 0)}% Read Rate
           </div>
         </div>
 
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
-          <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Failed Log</span>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors shadow-sm">
+          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Failed Log</span>
           <p className="text-xl font-black text-rose-500">{metrics.failed}</p>
           <div className="text-[8px] text-rose-500/85 leading-none">
             {Math.round((metrics.failed / metrics.sent) * 100 || 0)}% Bounce Threshold
           </div>
         </div>
 
-        <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors col-span-2 sm:col-span-1 shadow-sm">
-          <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Response Ratio</span>
+        <div className="p-3 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl space-y-1.5 hover:border-primary/50 transition-colors col-span-2 sm:col-span-1 shadow-sm">
+          <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider block">Response Ratio</span>
           <p className="text-xl font-black text-amber-600 dark:text-amber-450">{metrics.responseRate}%</p>
           <div className="text-[8px] text-amber-500/80 leading-none">Inbound customer reply rate</div>
         </div>
@@ -163,10 +163,10 @@ export function AnalyticsTab() {
       {/* Row 2: Delivery & Response charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Delivery Trend */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div>
-            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Delivery Trend Over Time</h3>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">Sent vs delivered statistics logged daily</p>
+            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Delivery Trend Over Time</h3>
+            <p className="text-[10px] text-slate-400 dark:text-slate-400">Sent vs delivered statistics logged daily</p>
           </div>
           <div className="h-56 w-full text-xs">
             <ResponsiveContainer width="100%" height="100%">
@@ -185,10 +185,10 @@ export function AnalyticsTab() {
         </div>
 
         {/* Response rate Trend */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
           <div>
-            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Interaction Performance</h3>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">Comparing message read-rate vs reply counts</p>
+            <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Interaction Performance</h3>
+            <p className="text-[10px] text-slate-400 dark:text-slate-400">Comparing message read-rate vs reply counts</p>
           </div>
           <div className="h-56 w-full text-xs">
             <ResponsiveContainer width="100%" height="100%">
@@ -217,10 +217,10 @@ export function AnalyticsTab() {
       </div>
 
       {/* Row 3: Campaign Comparison Bar charts */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-md space-y-3 transition-colors">
+      <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl p-4 shadow-md space-y-3 transition-colors">
         <div>
-          <h3 className="text-xs font-bold text-slate-850 dark:text-slate-200">Campaign Comparison metrics</h3>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400">Detailed comparative performance of recent marketing events</p>
+          <h3 className="text-xs font-bold text-slate-850 dark:text-slate-800">Campaign Comparison metrics</h3>
+          <p className="text-[10px] text-slate-400 dark:text-slate-400">Detailed comparative performance of recent marketing events</p>
         </div>
         <div className="h-60 w-full text-xs">
           <ResponsiveContainer width="100%" height="100%">

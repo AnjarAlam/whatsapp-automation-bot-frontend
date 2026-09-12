@@ -160,26 +160,26 @@ export function SenderTab() {
   });
 
   return (
-    <div className="bg-[#f0f2f5] dark:bg-[#111b21] border border-slate-200 dark:border-slate-800 rounded-xl h-[520px] flex overflow-hidden shadow-lg transition-colors duration-300 animate-in fade-in">
+    <div className="bg-[#f0f2f5] dark:bg-[#111b21] border border-slate-200 dark:border-slate-200 rounded-xl h-[calc(100vh-120px)] flex overflow-hidden shadow-lg transition-colors duration-300 animate-in fade-in">
       
       {/* Left Sidebar: Conversations list */}
       <div className="w-[340px] border-r border-[#e9edef] dark:border-[#222d34] flex flex-col shrink-0 bg-white dark:bg-[#111b21]">
         
         {/* WhatsApp Left Header */}
         <div className="h-[59px] px-4 py-3 bg-[#f0f2f5] dark:bg-[#202c33] flex justify-between items-center shrink-0 border-r border-[#d1d7db] dark:border-[#374248]">
-          <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-[#2a3942] border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-xs text-slate-600 dark:text-slate-200">
+          <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-[#2a3942] border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-xs text-slate-600 dark:text-slate-800">
             Own
           </div>
           <div className="flex items-center gap-3 text-slate-600 dark:text-slate-350">
-            <MessageSquare className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-white" />
-            <MoreVertical className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-white" />
+            <MessageSquare className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-slate-900" />
+            <MoreVertical className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-slate-900" />
           </div>
         </div>
 
         {/* Search Chat Input Area */}
         <div className="p-2.5 bg-white dark:bg-[#111b21] border-b border-[#e9edef] dark:border-[#222d34]">
           <div className="flex items-center gap-2 bg-[#f0f2f5] dark:bg-[#202c33] rounded-lg px-3 py-1.5">
-            <Search className="w-4 h-4 text-slate-500 dark:text-[#8696a0]" />
+            <Search className="w-4 h-4 text-slate-400 dark:text-[#8696a0]" />
             <input
               type="text"
               value={search}
@@ -245,8 +245,8 @@ export function SenderTab() {
                 </div>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-[#8696a0]">
-                <Search className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-white" />
-                <MoreVertical className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-white" />
+                <Search className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-slate-900" />
+                <MoreVertical className="w-5 h-5 cursor-pointer hover:text-slate-800 dark:hover:text-slate-900" />
               </div>
             </div>
 
@@ -284,7 +284,7 @@ export function SenderTab() {
                           </span>
                           {isOutgoing && (
                             m.status === 'sent' || m.status === 'SENT' ? (
-                              <Check className="w-3.5 h-3.5 text-slate-500 dark:text-[#8696a0]" />
+                              <Check className="w-3.5 h-3.5 text-slate-400 dark:text-[#8696a0]" />
                             ) : m.status === 'failed' || m.status === 'FAILED' ? (
                               <AlertCircle className="w-3 h-3 text-rose-500" />
                             ) : (
@@ -297,7 +297,7 @@ export function SenderTab() {
                   );
                 })
               ) : (
-                <div className="h-full flex items-center justify-center text-slate-500 text-xs">
+                <div className="h-full flex items-center justify-center text-slate-400 text-xs">
                   No conversation logs found. Send a message to start!
                 </div>
               )}
@@ -310,8 +310,8 @@ export function SenderTab() {
               {/* Optional Quick Template select line */}
               {templates.length > 0 && (
                 <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full">
-                  <FileText className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
-                  <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1">Templates:</span>
+                  <FileText className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400 shrink-0" />
+                  <span className="text-[9px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider shrink-0 mr-1">Templates:</span>
                   {templates.map((t) => (
                     <button
                       key={t.id}
@@ -330,7 +330,7 @@ export function SenderTab() {
                 <div className="flex items-center justify-between bg-white dark:bg-[#2a3942] p-1.5 rounded-lg border border-[#e9edef] dark:border-[#374248] animate-in slide-in-from-bottom-2">
                   <div className="flex items-center gap-2">
                     <ImageIcon className="w-4 h-4 text-primary shrink-0" />
-                    <span className="text-[10px] text-slate-550 dark:text-slate-300 font-medium truncate max-w-xs">{imageUrl}</span>
+                    <span className="text-[10px] text-slate-550 dark:text-slate-700 font-medium truncate max-w-xs">{imageUrl}</span>
                   </div>
                   <button onClick={() => setImageUrl('')} className="p-0.5 text-rose-500 hover:text-rose-600">
                     <X className="w-3.5 h-3.5" />
@@ -360,7 +360,7 @@ export function SenderTab() {
                   )}
                 </label>
 
-                <Smile className="w-6 h-6 text-slate-600 dark:text-[#8696a0] cursor-pointer hover:text-slate-800 dark:hover:text-white shrink-0" />
+                <Smile className="w-6 h-6 text-slate-600 dark:text-[#8696a0] cursor-pointer hover:text-slate-800 dark:hover:text-slate-900 shrink-0" />
 
                 {/* Input text */}
                 <input
@@ -376,22 +376,22 @@ export function SenderTab() {
                 <button
                   onClick={handleSendMessage}
                   disabled={isSending || isUploadingImage}
-                  className="p-2 bg-[#00a884] hover:bg-[#008f72] text-white rounded-full flex items-center justify-center shrink-0 disabled:opacity-40 transition-all shadow-md"
+                  className="p-2 bg-[#00a884] hover:bg-[#008f72] text-slate-900 rounded-full flex items-center justify-center shrink-0 disabled:opacity-40 transition-all shadow-md"
                 >
                   {isSending ? (
-                    <Loader2 className="w-4 h-4 animate-spin text-white" />
+                    <Loader2 className="w-4 h-4 animate-spin text-slate-900" />
                   ) : (
-                    <Send className="w-4 h-4 text-white" />
+                    <Send className="w-4 h-4 text-slate-900" />
                   )}
                 </button>
               </div>
             </div>
           </>
         ) : (
-          <div className="flex-1 flex flex-col items-center justify-center text-slate-500 text-sm">
+          <div className="flex-1 flex flex-col items-center justify-center text-slate-400 text-sm">
             <div className="text-center space-y-2">
               <span className="text-4xl block">💬</span>
-              <h3 className="text-base font-medium text-slate-800 dark:text-slate-300">WhatsApp Direct Chats</h3>
+              <h3 className="text-base font-medium text-slate-800 dark:text-slate-700">WhatsApp Direct Chats</h3>
               <p className="text-[11px] text-slate-450 max-w-xs leading-normal">Select a conversation thread to review broadcast records or reply manually.</p>
             </div>
           </div>

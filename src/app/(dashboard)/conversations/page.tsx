@@ -98,12 +98,12 @@ export default function ConversationsPage() {
   });
 
   return (
-    <div className="h-[calc(100vh-6.5rem)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex">
+    <div className="h-[calc(100vh-6.5rem)] bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl shadow-sm overflow-hidden flex">
       {/* Left Sidebar: Customer Conversations List */}
-      <div className="w-80 md:w-96 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0 bg-slate-50/50 dark:bg-slate-950/40">
-        <div className="p-4 border-b border-slate-200 dark:border-slate-800 space-y-3">
+      <div className="w-80 md:w-96 border-r border-slate-200 dark:border-slate-200 flex flex-col shrink-0 bg-slate-50/50 dark:bg-slate-50/40">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-200 space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h2 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-emerald-500" />
               <span>Customer Conversations</span>
             </h2>
@@ -119,7 +119,7 @@ export default function ConversationsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search chat list..."
-              className="w-full pl-8 pr-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
+              className="w-full pl-8 pr-3 py-1.5 bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-xl text-xs text-slate-900 dark:text-slate-900 focus:outline-none focus:border-emerald-500"
             />
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function ConversationsPage() {
                   className={`p-3.5 flex items-center gap-3 cursor-pointer transition-colors ${
                     isActive
                       ? 'bg-emerald-500/10 dark:bg-emerald-500/15 border-l-4 border-emerald-500'
-                      : 'hover:bg-slate-100/60 dark:hover:bg-slate-800/40'
+                      : 'hover:bg-slate-100/60 dark:hover:bg-slate-100/40'
                   }`}
                 >
                   <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm shrink-0 border border-emerald-500/30">
@@ -153,7 +153,7 @@ export default function ConversationsPage() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-900 truncate">
                         {customerName}
                       </h4>
                       <span className="text-[10px] text-slate-400 shrink-0">
@@ -179,13 +179,13 @@ export default function ConversationsPage() {
       {activeConv ? (
         <div className="flex-1 flex flex-col bg-slate-100/70 dark:bg-[#0b141a]">
           {/* Active Chat Header */}
-          <div className="h-16 px-6 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900 flex items-center justify-between shrink-0">
+          <div className="h-16 px-6 border-b border-slate-200 dark:border-slate-200/80 bg-white dark:bg-white flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs border border-emerald-500/30">
                 {activeConv.customerId?.name?.[0]?.toUpperCase() || 'C'}
               </div>
               <div>
-                <h3 className="text-xs font-bold text-slate-900 dark:text-white">
+                <h3 className="text-xs font-bold text-slate-900 dark:text-slate-900">
                   {activeConv.customerId?.name || 'WhatsApp Customer'}
                 </h3>
                 <p className="text-[11px] text-slate-400 font-mono">
@@ -213,7 +213,7 @@ export default function ConversationsPage() {
                     <div
                       className={`max-w-md px-4 py-2.5 rounded-2xl text-xs space-y-1 shadow-sm ${
                         isOutgoing
-                          ? 'bg-emerald-600 text-white rounded-tr-none'
+                          ? 'bg-emerald-600 text-slate-900 rounded-tr-none'
                           : 'bg-white dark:bg-[#202c33] text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700/50 rounded-tl-none'
                       }`}
                     >
@@ -243,19 +243,19 @@ export default function ConversationsPage() {
           {/* Bottom Message Input Bar */}
           <form
             onSubmit={handleSendMessage}
-            className="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800/80 flex items-center gap-3 shrink-0"
+            className="p-4 bg-white dark:bg-white border-t border-slate-200 dark:border-slate-200/80 flex items-center gap-3 shrink-0"
           >
             <input
               type="text"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type a WhatsApp message..."
-              className="flex-1 px-4 py-2.5 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
+              className="flex-1 px-4 py-2.5 bg-slate-100 dark:bg-slate-50 border border-slate-200 dark:border-slate-200 rounded-xl text-xs text-slate-900 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500"
             />
             <button
               type="submit"
               disabled={isSending || !newMessage.trim()}
-              className="py-2.5 px-4 bg-emerald-500 hover:bg-emerald-600 font-semibold text-slate-950 text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shadow-emerald-500/20 disabled:opacity-40 shrink-0"
+              className="py-2.5 px-4 bg-emerald-500 hover:bg-emerald-600 font-semibold text-white text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shadow-emerald-500/20 disabled:opacity-40 shrink-0"
             >
               {isSending ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -270,7 +270,7 @@ export default function ConversationsPage() {
         </div>
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center text-slate-400 text-xs space-y-2">
-          <MessageSquare className="w-10 h-10 text-slate-500" />
+          <MessageSquare className="w-10 h-10 text-slate-400" />
           <p>Select a customer conversation to start messaging</p>
         </div>
       )}

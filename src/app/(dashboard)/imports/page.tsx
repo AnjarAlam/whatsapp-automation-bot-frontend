@@ -112,18 +112,18 @@ export default function BulkImportPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-900 flex items-center gap-2.5">
             <UploadCloud className="w-7 h-7 text-emerald-500" />
             <span>Bulk Customer Import</span>
           </h1>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-400 dark:text-slate-400 mt-1">
             Upload CSV or Excel spreadsheets to quickly add hundreds of customer contacts
           </p>
         </div>
 
         <button
           onClick={downloadSampleCSV}
-          className="py-2.5 px-4 bg-slate-900 border border-slate-800 hover:border-slate-700 font-semibold text-slate-200 text-xs rounded-xl transition-all flex items-center gap-2 shadow-sm self-start sm:self-auto"
+          className="py-2.5 px-4 bg-white border border-slate-200 hover:border-slate-700 font-semibold text-slate-800 text-xs rounded-xl transition-all flex items-center gap-2 shadow-sm self-start sm:self-auto"
         >
           <Download className="w-4 h-4 text-emerald-400" />
           <span>Download Sample CSV</span>
@@ -131,7 +131,7 @@ export default function BulkImportPage() {
       </div>
 
       {/* Upload Dropzone */}
-      <div className="bg-white dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-800 hover:border-emerald-500/50 rounded-2xl p-8 text-center transition-colors">
+      <div className="bg-white dark:bg-white border-2 border-dashed border-slate-300 dark:border-slate-200 hover:border-emerald-500/50 rounded-2xl p-8 text-center transition-colors">
         <input
           type="file"
           id="fileUpload"
@@ -144,7 +144,7 @@ export default function BulkImportPage() {
             <FileSpreadsheet className="w-7 h-7" />
           </div>
           <div>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">
+            <p className="text-sm font-bold text-slate-900 dark:text-slate-900">
               {file ? file.name : 'Click or Drag & Drop CSV / Excel File'}
             </p>
             <p className="text-xs text-slate-400 mt-1">Supports .csv, .xlsx and .xls formats</p>
@@ -161,9 +161,9 @@ export default function BulkImportPage() {
 
       {/* Pre-Import Data Preview */}
       {previewRows.length > 0 && !summary && (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-900 flex items-center gap-2">
               <FileText className="w-4 h-4 text-emerald-500" />
               <span>File Data Preview (First 10 Rows)</span>
             </h3>
@@ -171,8 +171,8 @@ export default function BulkImportPage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
-              <thead className="bg-slate-50 dark:bg-slate-800/60 uppercase text-[10px] tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-800">
+            <table className="w-full text-left text-xs text-slate-600 dark:text-slate-700">
+              <thead className="bg-slate-50 dark:bg-slate-100/60 uppercase text-[10px] tracking-wider text-slate-400 border-b border-slate-200 dark:border-slate-200">
                 <tr>
                   <th className="py-3 px-4">#</th>
                   <th className="py-3 px-4">Name</th>
@@ -184,7 +184,7 @@ export default function BulkImportPage() {
                 {previewRows.map((row, i) => (
                   <tr key={i}>
                     <td className="py-2.5 px-4 font-mono text-slate-400">{i + 1}</td>
-                    <td className="py-2.5 px-4 font-semibold text-slate-900 dark:text-white">
+                    <td className="py-2.5 px-4 font-semibold text-slate-900 dark:text-slate-900">
                       {row.name || row.Name || row['Customer Name'] || 'N/A'}
                     </td>
                     <td className="py-2.5 px-4 font-mono">
@@ -201,7 +201,7 @@ export default function BulkImportPage() {
             <button
               onClick={handleUpload}
               disabled={isSubmitting}
-              className="py-2.5 px-6 bg-emerald-500 hover:bg-emerald-600 font-semibold text-slate-950 text-xs rounded-xl transition-all flex items-center gap-2 shadow-md shadow-emerald-500/20 disabled:opacity-50"
+              className="py-2.5 px-6 bg-emerald-500 hover:bg-emerald-600 font-semibold text-white text-xs rounded-xl transition-all flex items-center gap-2 shadow-md shadow-emerald-500/20 disabled:opacity-50"
             >
               {isSubmitting ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -218,12 +218,12 @@ export default function BulkImportPage() {
 
       {/* Summary Report Results */}
       {summary && (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-white border border-slate-200 dark:border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-8 h-8 text-emerald-500" />
             <div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white">Import Execution Summary</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Processed file: {file?.name}</p>
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-900">Import Execution Summary</h3>
+              <p className="text-xs text-slate-400 dark:text-slate-400">Processed file: {file?.name}</p>
             </div>
           </div>
 
@@ -241,7 +241,7 @@ export default function BulkImportPage() {
           {summary.errorRows && summary.errorRows.length > 0 && (
             <div className="space-y-2">
               <h4 className="text-xs font-bold text-rose-400">Failed Rows Details</h4>
-              <div className="max-h-40 overflow-y-auto bg-slate-950 p-3 rounded-xl text-xs space-y-1 font-mono text-slate-300">
+              <div className="max-h-40 overflow-y-auto bg-slate-50 p-3 rounded-xl text-xs space-y-1 font-mono text-slate-700">
                 {summary.errorRows.map((err: any, idx: number) => (
                   <div key={idx} className="flex gap-2">
                     <span className="text-rose-400 font-bold">Row {err.row}:</span>
@@ -258,7 +258,7 @@ export default function BulkImportPage() {
               setPreviewRows([]);
               setSummary(null);
             }}
-            className="py-2 px-4 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-2"
+            className="py-2 px-4 rounded-xl border border-slate-200 dark:border-slate-200 text-xs font-semibold text-slate-400 hover:text-slate-900 flex items-center gap-2"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Upload Another File</span>

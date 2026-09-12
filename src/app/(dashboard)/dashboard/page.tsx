@@ -90,7 +90,7 @@ export default function DashboardPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-[400px] flex flex-col items-center justify-center text-slate-500 space-y-3">
+        <div className="min-h-[400px] flex flex-col items-center justify-center text-slate-400 space-y-3">
           <Loader2 className="w-8 h-8 text-emerald-500 animate-spin" />
           <p className="text-xs font-medium">Loading Workspace Dashboard View...</p>
         </div>
