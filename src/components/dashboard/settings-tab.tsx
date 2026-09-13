@@ -25,7 +25,7 @@ import {
   Check,
   Send
 } from 'lucide-react';
-import api from '../../lib/api';
+import { api } from '../../lib/api';
 
 export function SettingsTab() {
   const { status, connectedNumber, qrCode, isLoading, connect, disconnect, fetchStatus } =
